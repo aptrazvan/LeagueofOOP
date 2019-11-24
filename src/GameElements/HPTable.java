@@ -7,6 +7,7 @@ public class HPTable {
     private HashMap<String, Integer> table;
 
     private HPTable() {
+        table = new HashMap<>();
         table.put("PyromancerStart", 500);
         table.put("PyromancerLevel", 50);
         table.put("KnightStart", 900);

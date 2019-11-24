@@ -5,9 +5,10 @@ import javafx.util.Pair;
 import java.util.ArrayList;
 
 public class Map {
+    private static Map instance = null;
     private String[][] terrain;
 
-    public Map(Pair<Integer, Integer> terrainDim, ArrayList<String> terrainType) {
+    private Map(Pair<Integer, Integer> terrainDim, ArrayList<String> terrainType) {
         terrain = new String[terrainDim.getKey()][terrainDim.getValue()];
 
         for (int i = 0; i < terrainDim.getKey(); i++) {
@@ -15,6 +16,14 @@ public class Map {
                 terrain[i][j] = String.valueOf(terrainType.get(i).charAt(j));
             }
         }
+    }
+
+    public static void getInstance(Pair<Integer, Integer> terrainDim, ArrayList<String> terrainType) {
+        instance = new Map(terrainDim, terrainType);
+    }
+
+    public static Map getInstance() {
+        return instance;
     }
 
     public String getTerrainType(int xCoord, int yCoord) {

@@ -1,6 +1,6 @@
 package GameElements;
 
-public class Ignite implements Ability {
+public class Execute implements Ability {
     private int boostLevel = 0;
     private float boostTerrain = 0;
 
@@ -12,25 +12,25 @@ public class Ignite implements Ability {
     @Override
     public void target(Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
-        pyromancer.takeDamage(Math.round((150 + 20 * boostLevel) * boostTerrain * (90.0f / 100)));
+        pyromancer.takeDamage(Math.round((200 + 30 * boostLevel) * boostTerrain * (110.0f / 100)));
     }
 
     @Override
     public void target(Knight knight) {
         setBoostTerrain(knight);
-        knight.takeDamage(Math.round((150 + 20 * boostLevel) * boostTerrain * (120.0f / 100)));
+        knight.takeDamage(Math.round((200 + 30 * boostLevel) * boostTerrain * (100.0f / 100)));
     }
 
     @Override
     public void target(Wizard wizard) {
         setBoostTerrain(wizard);
-        wizard.takeDamage(Math.round((150 + 20 * boostLevel) * boostTerrain * (105.0f / 100)));
+        wizard.takeDamage(Math.round((200 + 30 * boostLevel) * boostTerrain * (80.0f / 100)));
     }
 
     @Override
     public void target(Rogue rogue) {
         setBoostTerrain(rogue);
-        rogue.takeDamage(Math.round((150 + 20 * boostLevel) * boostTerrain * (80.0f / 100)));
+        rogue.takeDamage(Math.round((200 + 30 * boostLevel) * boostTerrain * (115.0f / 100)));
     }
 
     @Override
@@ -40,8 +40,8 @@ public class Ignite implements Ability {
 
     @Override
     public void setBoostTerrain(Player player) {
-        if (Map.getInstance().getTerrainType(player.getPosition()[0], player.getPosition()[1]).equals("V")) {
-            boostTerrain = 125.0f / 100;
+        if (Map.getInstance().getTerrainType(player.getPosition()[0], player.getPosition()[1]).equals("L")) {
+            boostTerrain = 115.0f / 100;
         }
         else {
             boostTerrain = 1;

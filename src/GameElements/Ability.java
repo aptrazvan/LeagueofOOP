@@ -6,4 +6,6 @@ public interface Ability {
     public void target(Knight knight);
     public void target(Wizard wizard);
     public void target(Rogue rogue);
+    public void levelUp();
+    public void setBoostTerrain(Player player);
 }

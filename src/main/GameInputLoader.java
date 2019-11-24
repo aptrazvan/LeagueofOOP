@@ -38,9 +38,15 @@ public final class GameInputLoader {
             }
 
             roundsNumber = fs.nextInt();
+            String word;
 
-            for (int i = 0; i < roundsNumber * playersNumber; i++) {
-                moves.add(fs.nextWord());
+            for (int i = 0; i < roundsNumber; i++) {
+                //moves.add(fs.nextWord());
+                word = fs.nextWord();
+
+                for (int j = 0; j < playersNumber; j++) {
+                    moves.add(String.valueOf(word.charAt(j)));
+                }
             }
 
             fs.close();

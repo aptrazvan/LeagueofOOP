@@ -7,6 +7,7 @@ public class XPTable {
     private HashMap<Integer, Integer> table;
 
     private XPTable() {
+        table = new HashMap<>();
         table.put(1, 250);
         table.put(2, 300);
         table.put(3, 350);

@@ -8,19 +8,28 @@ public abstract class Player implements Target{
     protected int xp;
     protected int health;
     protected int[] position;
+    Vector<Ability> abilities;
+    protected boolean incapacitated;
 
     public Player(int positionX, int positionY) {
         level = 0;
         xp = 0;
-        resetHP();
         position = new int[2];
         position[0] = positionX;
         position[1] = positionY;
+        abilities = new Vector<>();
+        incapacitated = false;
+    }
+
+    public String getHeroClass() {
+        return heroClass;
     }
 
     public int getLevel() {
         return level;
     }
+
+    public int getXP () { return xp; }
 
     public void gainXP(int xp) {
         this.xp += xp;
@@ -29,6 +38,11 @@ public abstract class Player implements Target{
     public void levelUp() {
         if (xp > XPTable.getInstance().getTable().get(level + 1)) {
             level++;
+            resetHP();
+
+            for (int i = 0; i < abilities.size(); i++) {
+                abilities.get(i).levelUp();
+            }
         }
     }
 
@@ -36,22 +50,26 @@ public abstract class Player implements Target{
         health -= damage;
     }
 
+    public int getHP() {
+        return health;
+    }
+
     public void resetHP() {
         health = HPTable.getInstance().getTable().get(heroClass + "Start") + level * HPTable.getInstance().getTable().get(heroClass + "Level");
     }
 
     public void move(String direction) {
-        if (direction == "U") {
-            position[1]++;
+        if (direction.equals("U")) {
+            position[0]++;
         }
-        else if (direction == "D") {
-            position[1]--;
-        }
-        else if (direction == "L") {
+        else if (direction.equals("D")) {
             position[0]--;
         }
-        else if (direction == "R") {
-            position[0]++;
+        else if (direction.equals("L")) {
+            position[1]--;
+        }
+        else if (direction.equals("R")) {
+            position[1]++;
         }
     }
 
@@ -67,7 +85,19 @@ public abstract class Player implements Target{
         return false;
     }
 
+    public Vector<Ability> getAbilities() {
+        return abilities;
+    }
+
     public void accept(Ability ability) {
         ability.target(this);
+    }
+
+    public void setIncapacitated(boolean incapacitated) {
+        this.incapacitated = incapacitated;
+    }
+
+    public boolean getIncapacitated() {
+        return incapacitated;
     }
 }
