@@ -4,16 +4,16 @@ import java.util.HashMap;
 
 public class XPTable {
     private static XPTable instance = null;
-    private HashMap<String, Integer> table;
+    private HashMap<Integer, Integer> table;
 
     private XPTable() {
-        table.put("nivel1", 250);
-        table.put("nivel2", 300);
-        table.put("nivel3", 350);
-        table.put("nivel4", 400);
+        table.put(1, 250);
+        table.put(2, 300);
+        table.put(3, 350);
+        table.put(4, 400);
     }
 
-    public XPTable getInstance() {
+    public static XPTable getInstance() {
         if (instance == null) {
             instance = new XPTable();
         }
@@ -21,7 +21,7 @@ public class XPTable {
         return instance;
     }
 
-    private HashMap<String, Integer> getTable() {
+    public HashMap<Integer, Integer> getTable() {
         return table;
     }
 }
