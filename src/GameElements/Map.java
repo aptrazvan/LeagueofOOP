@@ -1,6 +1,6 @@
 package GameElements;
 
-import javafx.util.Pair;
+import main.Pair;
 
 import java.util.ArrayList;
 

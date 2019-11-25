@@ -3,7 +3,6 @@ package main;
 import java.util.ArrayList;
 
 import fileio.FileSystem;
-import javafx.util.Pair;
 
 public final class GameInputLoader {
     private final String mInputPath;

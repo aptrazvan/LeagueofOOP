@@ -1,5 +1,9 @@
 package GameElements;
 
+import fileio.FileSystem;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game {
@@ -16,9 +20,9 @@ public class Game {
     public void battle(Player player1, Player player2) {
         for (int i = 0; i < player1.getAbilities().size(); i++) {
             player2.accept(player1.getAbilities().get(i));
-            System.out.println(player2.getHP());
+            //System.out.println(player2.getHP());
             player1.accept(player2.getAbilities().get(i));
-            System.out.println(player2.getHP());
+            //System.out.println(player2.getHP());
         }
 
         if (player1.getHP() <= 0 && player2.getHP() <= 0) {
@@ -79,18 +83,24 @@ public class Game {
 
     }
 
-    public void listResults() {
+    public void listResults(String mInputPath, String mOutputPath) throws IOException {
         String classType;
+        FileSystem fs = new FileSystem(mInputPath, mOutputPath);
 
         for (int i = 0; i < players.size(); i++) {
             if (players.get(i).getHP() <= 0) {
                 System.out.println(players.get(i).getHeroClass() + " dead");
+                fs.writeWord(players.get(i).getHeroClass().charAt(0) + " dead" + "\n");
             }
             else {
                 System.out.println(players.get(i).getHeroClass() + " " + players.get(i).getLevel() + " " + players.get(i).getXP() +
                         " " + players.get(i).getHP() + " " + players.get(i).getPosition()[0] + " " + players.get(i).getPosition()[1]);
+                fs.writeWord(players.get(i).getHeroClass().charAt(0) + " " + players.get(i).getLevel() + " " + players.get(i).getXP() +
+                        " " + players.get(i).getHP() + " " + players.get(i).getPosition()[0] + " " + players.get(i).getPosition()[1] + "\n");
+
             }
         }
+        fs.close();
     }
 
 
