@@ -28,6 +28,7 @@ public class Slam implements Ability {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((100 + 40 * boostLevel) * boostTerrain * (105.0f / 100)));
         wizard.addEffect(1, 1, 0);
+        wizard.addDamageReceived(Math.round((100 + 40 * boostLevel) * boostTerrain));
     }
 
     @Override

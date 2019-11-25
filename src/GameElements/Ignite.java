@@ -32,6 +32,7 @@ public class Ignite implements Ability {
         wizard.takeDamage(Math.round((150 + 20 * boostLevel) * boostTerrain * (105.0f / 100)));
         damage = Math.round((50 + 30 * boostLevel) * boostTerrain * (105.0f / 100));
         wizard.addEffect(0, 2, damage);
+        wizard.addDamageReceived(Math.round((150 + 20 * boostLevel) * boostTerrain));
     }
 
     @Override

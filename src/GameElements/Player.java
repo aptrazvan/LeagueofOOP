@@ -96,6 +96,15 @@ public abstract class Player implements Target{
     }
 
     public void addEffect(int effect, int duration, int damage) {
+
+        for (int i = 0; i < effects.size(); i++) {
+            if (effects.get(i)[0] == effect && effects.get(i)[1] < duration) {
+                effects.get(i)[1] = duration;
+                effects.get(i)[2] = damage;
+                return;
+            }
+        }
+
         effects.add(new Integer[]{effect, duration, damage});
     }
 
@@ -103,7 +112,7 @@ public abstract class Player implements Target{
         for (int i = 0; i < effects.size(); i++) {
             effects.get(i)[1]--;
 
-            if (effects.get(i)[0] == 0) {
+            if (effects.get(i)[0] == 0 || effects.get(i)[0] == 2) {
                 health -= effects.get(i)[2];
 
                 if (health <= 0) {

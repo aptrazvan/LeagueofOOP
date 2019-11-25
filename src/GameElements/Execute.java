@@ -38,10 +38,12 @@ public class Execute implements Ability {
         setBoostTerrain(wizard);
 
         if (wizard.getHP() < Math.min((20.0f + boostLevel), 40.0f) / 100 * (wizard.getMaxHP())) {
+            wizard.setDamageReceived(wizard.getHP());
             wizard.takeDamage(wizard.getHP());
         }
         else {
             wizard.takeDamage(Math.round((200 + 30 * boostLevel) * boostTerrain * (80.0f / 100)));
+            wizard.setDamageReceived(Math.round((200 + 30 * boostLevel) * boostTerrain));
         }
     }
 

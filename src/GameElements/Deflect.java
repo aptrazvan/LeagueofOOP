@@ -3,6 +3,7 @@ package GameElements;
 public class Deflect implements Ability {
     private int boostLevel = 0;
     private float boostTerrain = 0;
+    private int damageReceived;
 
     @Override
     public void target(Player player) {
@@ -12,11 +13,13 @@ public class Deflect implements Ability {
     @Override
     public void target(Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
+        pyromancer.takeDamage(Math.round(Math.min(35.0f + 2 * boostLevel, 70.0f) / 100 * damageReceived * 130.0f / 100));
     }
 
     @Override
     public void target(Knight knight) {
         setBoostTerrain(knight);
+        knight.takeDamage(Math.round(Math.min(35.0f + 2 * boostLevel, 70.0f) / 100 * damageReceived * 140.0f / 100));
     }
 
     @Override
@@ -27,6 +30,8 @@ public class Deflect implements Ability {
     @Override
     public void target(Rogue rogue) {
         setBoostTerrain(rogue);
+        rogue.takeDamage(Math.round(Math.min(35.0f + 2 * boostLevel, 70.0f) / 100 * damageReceived * 120.0f / 100));
+
     }
 
     @Override
@@ -42,5 +47,9 @@ public class Deflect implements Ability {
         else {
             boostTerrain = 1;
         }
+    }
+
+    public void setDamage (int damage) {
+        damageReceived = damage;
     }
 }

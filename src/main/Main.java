@@ -44,6 +44,8 @@ public class Main {
 
         game.play();
         game.listResults(args[0], args[1]);
+        //game.listResults("/home/apetroaie/Labs/POO/Project/src/main/input.in",
+        //        "/home/apetroaie/Labs/POO/Project/src/main/output.out");
 
     }
 }

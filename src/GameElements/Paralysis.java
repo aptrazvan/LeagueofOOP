@@ -16,7 +16,7 @@ public class Paralysis implements Ability {
         setBoostTerrain(pyromancer);
         damage = Math.round((40 + 10 * boostLevel) * boostTerrain * (120.0f / 100));
         pyromancer.takeDamage(damage);
-        pyromancer.addEffect(0, overtime, damage);
+        pyromancer.addEffect(2, overtime, damage);
         pyromancer.addEffect(1, overtime, 0);
     }
 
@@ -25,7 +25,7 @@ public class Paralysis implements Ability {
         setBoostTerrain(knight);
         damage = Math.round((40 + 10 * boostLevel) * boostTerrain * (80.0f / 100));
         knight.takeDamage(damage);
-        knight.addEffect(0, overtime, damage);
+        knight.addEffect(2, overtime, damage);
         knight.addEffect(1, overtime, 0);
 
     }
@@ -35,8 +35,9 @@ public class Paralysis implements Ability {
         setBoostTerrain(wizard);
         damage = Math.round((40 + 10 * boostLevel) * boostTerrain * (125.0f / 100));
         wizard.takeDamage(damage);
-        wizard.addEffect(0, overtime, damage);
+        wizard.addEffect(2, overtime, damage);
         wizard.addEffect(1, overtime, 0);
+        wizard.addDamageReceived(Math.round((40 + 10 * boostLevel) * boostTerrain));
 
     }
 
@@ -45,7 +46,7 @@ public class Paralysis implements Ability {
         setBoostTerrain(rogue);
         damage = Math.round((40 + 10 * boostLevel) * boostTerrain * (90.0f / 100));
         rogue.takeDamage(damage);
-        rogue.addEffect(0, overtime, damage);
+        rogue.addEffect(2, overtime, damage);
         rogue.addEffect(1, overtime, 0);
 
     }

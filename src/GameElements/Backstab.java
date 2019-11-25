@@ -3,7 +3,7 @@ package GameElements;
 public class Backstab implements Ability {
     private int boostLevel = 0;
     float boostTerrain = 0;
-    int abilityCounter = 0;
+    int abilityCounter = 2 ;
 
     @Override
     public void target(Player player) {
@@ -26,6 +26,7 @@ public class Backstab implements Ability {
     public void target(Wizard wizard) {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((200 + 20 * boostLevel) * boostTerrain * (125.0f / 100)));
+        wizard.setDamageReceived(Math.round((200 + 20 * boostLevel) * boostTerrain));
     }
 
     @Override

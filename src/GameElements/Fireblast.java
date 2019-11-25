@@ -25,6 +25,7 @@ public class Fireblast implements Ability {
     public void target(Wizard wizard) {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((350 + 50 * boostLevel) * boostTerrain * (105.0f / 100)));
+        wizard.setDamageReceived(Math.round((350 + 50 * boostLevel) * boostTerrain));
     }
 
     @Override

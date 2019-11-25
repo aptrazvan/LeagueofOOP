@@ -18,10 +18,34 @@ public class Game {
     }
 
     public void battle(Player player1, Player player2) {
+        int isDeflect = 0;
+
         for (int i = 0; i < player1.getAbilities().size(); i++) {
-            player2.accept(player1.getAbilities().get(i));
+            if (player1.getAbilities().get(i) instanceof Deflect == false) {
+                player2.accept(player1.getAbilities().get(i));
+            }
+            else {
+                isDeflect = 1;
+            }
+
             //System.out.println(player2.getHP());
-            player1.accept(player2.getAbilities().get(i));
+            if (player2.getAbilities().get(i) instanceof Deflect == false) {
+                player1.accept(player2.getAbilities().get(i));
+            }
+            else {
+                isDeflect = 2;
+            }
+
+            if (isDeflect == 1) {
+                ((Deflect)player1.getAbilities().get(1)).setDamage(((Wizard)player1).getDamageReceived());
+                player2.accept(player1.getAbilities().get(1));
+            }
+            else if (isDeflect == 2) {
+                ((Deflect)player2.getAbilities().get(1)).setDamage(((Wizard)player2).getDamageReceived());
+                player1.accept(player2.getAbilities().get(1));
+            }
+
+
             //System.out.println(player2.getHP());
         }
 
@@ -52,15 +76,18 @@ public class Game {
         int currentRound = 0;
         int movesCounter = 0;
 
-        for (int i = 0; i < players.size(); i++) {
-            if (players.get(i).getHP() > 0) {
-                players.get(i).setIncapacitated(false);
-            }
 
-            players.get(i).resolveEffects();
-        }
 
         while (currentRound < roundsNumber) {
+
+            for (int i = 0; i < players.size(); i++) {
+                if (players.get(i).getHP() > 0) {
+                    players.get(i).setIncapacitated(false);
+                }
+
+                players.get(i).resolveEffects();
+            }
+
             for (int i = 0; i < players.size(); i++) {
                 if (players.get(i).getIncapacitated() == false) {
                     players.get(i).move(moves.get(i + currentRound * players.size()));
