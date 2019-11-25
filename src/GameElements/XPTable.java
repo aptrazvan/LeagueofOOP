@@ -8,10 +8,11 @@ public class XPTable {
 
     private XPTable() {
         table = new HashMap<>();
-        table.put(1, 250);
-        table.put(2, 300);
-        table.put(3, 350);
-        table.put(4, 400);
+
+        for (int i = 1; i < 21; i++) {
+            table.put(i, 200 + 50 * i);
+        }
+
     }
 
     public static XPTable getInstance() {

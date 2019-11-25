@@ -12,4 +12,8 @@ public class Knight extends Player {
     public void accept(Ability ability) {
         ability.target(this);
     }
+
+    public int getMaxHP() {
+        return 900 + 80 * level;
+    }
 }

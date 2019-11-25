@@ -9,6 +9,7 @@ public abstract class Player implements Target{
     protected int health;
     protected int[] position;
     Vector<Ability> abilities;
+    Vector<Integer[]> effects;
     protected boolean incapacitated;
 
     public Player(int positionX, int positionY) {
@@ -18,6 +19,7 @@ public abstract class Player implements Target{
         position[0] = positionX;
         position[1] = positionY;
         abilities = new Vector<>();
+        effects = new Vector<>();
         incapacitated = false;
     }
 
@@ -91,6 +93,32 @@ public abstract class Player implements Target{
 
     public void accept(Ability ability) {
         ability.target(this);
+    }
+
+    public void addEffect(int effect, int duration, int damage) {
+        effects.add(new Integer[]{effect, duration, damage});
+    }
+
+    public void resolveEffects() {
+        for (int i = 0; i < effects.size(); i++) {
+            effects.get(i)[1]--;
+
+            if (effects.get(i)[0] == 0) {
+                health -= effects.get(i)[2];
+
+                if (health <= 0) {
+                    incapacitated = true;
+                }
+            }
+            else {
+                incapacitated = true;
+            }
+
+            if (effects.get(i)[1] == 0) {
+                effects.remove(i);
+                i--;
+            }
+        }
     }
 
     public void setIncapacitated(boolean incapacitated) {

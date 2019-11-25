@@ -12,4 +12,8 @@ public class Wizard extends Player {
     public void accept(Ability ability) {
         ability.target(this);
     }
+
+    public int getMaxHP() {
+        return 400 + 30 * level;
+    }
 }

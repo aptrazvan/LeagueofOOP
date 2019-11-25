@@ -12,4 +12,8 @@ public class Pyromancer extends Player {
     public void accept(Ability ability) {
         ability.target(this);
     }
+
+    public int getMaxHP() {
+        return 500 + 50 * level;
+    }
 }

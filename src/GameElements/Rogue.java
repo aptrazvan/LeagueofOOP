@@ -12,4 +12,8 @@ public class Rogue extends Player{
     public void accept(Ability ability) {
         ability.target(this);
     }
+
+    public int getMaxHP() {
+        return 600 + 40 * level;
+    }
 }

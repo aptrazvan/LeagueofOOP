@@ -3,6 +3,7 @@ package GameElements;
 public class Backstab implements Ability {
     private int boostLevel = 0;
     float boostTerrain = 0;
+    int abilityCounter = 0;
 
     @Override
     public void target(Player player) {
@@ -40,11 +41,22 @@ public class Backstab implements Ability {
 
     @Override
     public void setBoostTerrain(Player player) {
+        abilityCounter++;
+
         if (Map.getInstance().getTerrainType(player.getPosition()[0], player.getPosition()[1]).equals("W")) {
             boostTerrain = 115.0f / 100;
+
+            if (abilityCounter == 3) {
+                boostTerrain *= 150.0f / 100;
+                abilityCounter = 0;
+            }
         }
         else {
             boostTerrain = 1;
+        }
+
+        if (abilityCounter == 3) {
+            abilityCounter = 0;
         }
     }
 }

@@ -48,6 +48,14 @@ public class Game {
         int currentRound = 0;
         int movesCounter = 0;
 
+        for (int i = 0; i < players.size(); i++) {
+            if (players.get(i).getHP() > 0) {
+                players.get(i).setIncapacitated(false);
+            }
+
+            players.get(i).resolveEffects();
+        }
+
         while (currentRound < roundsNumber) {
             for (int i = 0; i < players.size(); i++) {
                 if (players.get(i).getIncapacitated() == false) {
@@ -60,7 +68,7 @@ public class Game {
             for (int i = 0; i < players.size() - 1; i++) {
                 for (int j = i + 1; j < players.size(); j++) {
                     if (players.get(i).equalsPosition(players.get(j).getPosition())
-                            && players.get(i).getIncapacitated() == false && players.get(j).getIncapacitated() == false) {
+                            && players.get(i).getHP() > 0 && players.get(j).getHP() > 0) {
                         battle(players.get(i), players.get(j));
                     }
                 }
