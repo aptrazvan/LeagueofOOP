@@ -13,13 +13,14 @@ public class Deflect implements Ability {
     @Override
     public void target(Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
-        pyromancer.takeDamage(Math.round(Math.min(35.0f + 2 * boostLevel, 70.0f) / 100 * damageReceived * 130.0f / 100));
+        pyromancer.takeDamage(Math.round(Math.min(0.35f + 0.02f * boostLevel, 0.7f) * damageReceived * boostTerrain * 1.3f));
+        System.out.println((Math.min(35.0f + 2.0f * (float)boostLevel, 70.0f) / 100.0f * (float)damageReceived * (float)boostTerrain * 130.0f / 100.0f));
     }
 
     @Override
     public void target(Knight knight) {
         setBoostTerrain(knight);
-        knight.takeDamage(Math.round(Math.min(35.0f + 2 * boostLevel, 70.0f) / 100 * damageReceived * 140.0f / 100));
+        knight.takeDamage(Math.round(Math.min(35.0f + 2 * boostLevel, 70.0f) / 100 * damageReceived * boostTerrain * 140.0f / 100));
     }
 
     @Override
@@ -30,7 +31,7 @@ public class Deflect implements Ability {
     @Override
     public void target(Rogue rogue) {
         setBoostTerrain(rogue);
-        rogue.takeDamage(Math.round(Math.min(35.0f + 2 * boostLevel, 70.0f) / 100 * damageReceived * 120.0f / 100));
+        rogue.takeDamage(Math.round(Math.min(35.0f + 2 * boostLevel, 70.0f) / 100 * damageReceived * boostTerrain * 120.0f / 100));
 
     }
 

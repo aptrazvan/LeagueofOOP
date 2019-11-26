@@ -19,6 +19,8 @@ public class Game {
 
     public void battle(Player player1, Player player2) {
         int isDeflect = 0;
+        System.out.println("Battle: " + player1.getHeroClass() + " " + player2.getHeroClass());
+        System.out.println(player1.getHP() + " " + player2.getHP());
 
         for (int i = 0; i < player1.getAbilities().size(); i++) {
             if (player1.getAbilities().get(i) instanceof Deflect == false) {
@@ -54,8 +56,8 @@ public class Game {
             player2.gainXP(Math.max(0, 200 - (player2.getLevel() - player1.getLevel()) * 40));
             player1.levelUp();
             player2.levelUp();
-            player1.setIncapacitated(true);
-            player2.setIncapacitated(true);
+            player1.takeDamage(player1.getHP());
+            player2.takeDamage(player2.getHP());
         }
         else if (player2.getHP() <= 0) {
             player1.gainXP(Math.max(0, 200 - (player1.getLevel() - player2.getLevel()) * 40));
@@ -67,6 +69,9 @@ public class Game {
             player2.levelUp();
             player1.setIncapacitated(true);
         }
+
+        System.out.println(player1.getHP() + " " + player2.getHP());
+
     }
 
     public void play() {

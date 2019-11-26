@@ -38,7 +38,7 @@ public abstract class Player implements Target{
     }
 
     public void levelUp() {
-        if (xp > XPTable.getInstance().getTable().get(level + 1)) {
+        while (xp >= XPTable.getInstance().getTable().get(level + 1)) {
             level++;
             resetHP();
 
@@ -62,10 +62,10 @@ public abstract class Player implements Target{
 
     public void move(String direction) {
         if (direction.equals("U")) {
-            position[0]++;
+            position[0]--;
         }
         else if (direction.equals("D")) {
-            position[0]--;
+            position[0]++;
         }
         else if (direction.equals("L")) {
             position[1]--;

@@ -20,6 +20,7 @@ public class Backstab implements Ability {
     public void target(Knight knight) {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round((200 + 20 * boostLevel) * boostTerrain * (90.0f / 100)));
+        System.out.println((200 + 20 * boostLevel) * boostTerrain * (90.0f / 100));
     }
 
     @Override
@@ -45,10 +46,11 @@ public class Backstab implements Ability {
         abilityCounter++;
 
         if (Map.getInstance().getTerrainType(player.getPosition()[0], player.getPosition()[1]).equals("W")) {
-            boostTerrain = 115.0f / 100;
+            boostTerrain = 1.15f;
 
             if (abilityCounter == 3) {
-                boostTerrain *= 150.0f / 100;
+                boostTerrain *= 1.5f;
+                boostTerrain = (float)Math.round(boostTerrain * 1000) / 1000;
                 abilityCounter = 0;
             }
         }

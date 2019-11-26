@@ -13,6 +13,7 @@ public class Drain implements Ability {
     public void target(Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round((20.0f + 5 * boostLevel) / 100 * Math.min(0.3f * pyromancer.getMaxHP(), pyromancer.getHP()) * boostTerrain * (90.0f / 100)));
+        System.out.println((20.0f + 5 * boostLevel) / 100 * Math.min(0.3f * pyromancer.getMaxHP(), pyromancer.getHP()) * boostTerrain * (90.0f / 100));
     }
 
     @Override
