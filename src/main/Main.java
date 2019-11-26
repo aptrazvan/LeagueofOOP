@@ -11,7 +11,7 @@ import game.elements.Wizard;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Main {
+public final class Main {
 
     private Main() {
 
