@@ -33,14 +33,13 @@ public final class GameInputLoader {
             playersNumber = fs.nextInt();
 
             for (int i = 0; i < playersNumber; i++) {
-                players.add(new Triplet<String, Integer, Integer>(fs.nextWord(), fs.nextInt(), fs.nextInt()));
+                players.add(new Triplet<>(fs.nextWord(), fs.nextInt(), fs.nextInt()));
             }
 
             roundsNumber = fs.nextInt();
             String word;
 
             for (int i = 0; i < roundsNumber; i++) {
-                //moves.add(fs.nextWord());
                 word = fs.nextWord();
 
                 for (int j = 0; j < playersNumber; j++) {

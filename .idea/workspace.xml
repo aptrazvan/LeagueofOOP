@@ -10,68 +10,44 @@
       <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Fireblast.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Fireblast.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Ignite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Ignite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Knight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Map.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Paralysis.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Paralysis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Pyromancer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Pyromancer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Rogue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Rogue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Slam.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Slam.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/GameElements/Wizard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/GameElements/Wizard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/3x3.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/3x3.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/4x4.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/4x4.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/5x5.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/5x5.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightKRW.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightKRW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightKWD.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightKWD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightKWL.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightKWL.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightKWV.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightKWV.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightKWW.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightKWW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightPWD.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightPWD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightPWL.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightPWL.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightPWV.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightPWV.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightPWW.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightPWW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRKW.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRKW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRPW.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRPW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRWD.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRWD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRWL.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRWL.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRWV.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRWV.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRWW.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightRWW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWKD.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWKD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWKL.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWKL.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWKV.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWKV.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWKW.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWKW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWPD.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWPD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWPL.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWPL.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWPV.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWPV.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWPW.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWPW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWRD.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWRD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWRL.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWRL.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWRV.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWRV.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWRW.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightWRW.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/dense.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/dense.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightPKL.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checker/resources/out/fightPKL.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/checkstyle.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/main/input.in" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/main/input.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/main/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/main/output.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/main/output.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameElements/Backstab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameElements/Backstab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameElements/Deflect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameElements/Deflect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameElements/Drain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameElements/Drain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameElements/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameElements/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameElements/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameElements/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/3x3.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/3x3.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/4x4.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/4x4.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/5x5.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/5x5.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/dense.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/dense.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightKRW.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightKRW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightKWD.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightKWD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightPWD.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightPWD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightPWL.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightPWL.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightPWW.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightPWW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightRKW.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightRKW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightRWD.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightRWD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightWKD.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightWKD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightWPD.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightWPD.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightWPL.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightWPL.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightWPW.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightWPW.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/checker/resources/out/fightWRD.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/checker/resources/out/fightWRD.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Ability.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Backstab.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Deflect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Drain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Execute.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Fireblast.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/HPTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Ignite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Knight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Map.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Paralysis.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Pyromancer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Rogue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Slam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Target.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/Wizard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameElements/XPTable.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/checkstyle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/checkstyle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GameInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GameInputLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameInputLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/input.in" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/input.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/output.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/output.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Triplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Triplet.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +74,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

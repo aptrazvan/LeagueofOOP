@@ -1,9 +1,8 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class GameInput {
+public final class GameInput {
     // DO NOT MODIFY
     private Pair<Integer, Integer> terrainDim;
     private ArrayList<String> terrainType;
@@ -20,8 +19,10 @@ public class GameInput {
         moves = null;
     }
 
-    public GameInput(Pair<Integer, Integer> terrainDim, ArrayList<String> terrainType, int playersNumber,
-                     ArrayList<Triplet<String, Integer, Integer>> players, int roundsNumber, ArrayList<String> moves) {
+    public GameInput(final Pair<Integer, Integer> terrainDim,
+                     final ArrayList<String> terrainType, final int playersNumber,
+                     final ArrayList<Triplet<String, Integer, Integer>> players,
+                     final int roundsNumber, final ArrayList<String> moves) {
         this.terrainDim = terrainDim;
         this.terrainType = terrainType;
         this.playersNumber = playersNumber;
@@ -54,7 +55,7 @@ public class GameInput {
         return moves;
     }
 
-    public final boolean isValidInput() {
+    public boolean isValidInput() {
         boolean membersInstantiated = terrainType != null && players != null && moves != null;
         boolean membersNotEmpty = playersNumber > 0 && roundsNumber > 0;
 
