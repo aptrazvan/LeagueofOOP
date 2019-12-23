@@ -15,6 +15,7 @@ public final class Backstab implements Ability {
     private int boostLevel = 0;
     private float boostTerrain = 0;
     private int abilityCounter = 2;
+    private float damageModifier = 0;
 
     @Override
     public void target(final Player player) {
@@ -25,21 +26,21 @@ public final class Backstab implements Ability {
     public void target(final Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE
-                * boostLevel) * boostTerrain * BACKSTAB_PYROMANCER_MODIFIER));
+                * boostLevel) * boostTerrain * BACKSTAB_PYROMANCER_MODIFIER * damageModifier));
     }
 
     @Override
     public void target(final Knight knight) {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE
-                * boostLevel) * boostTerrain * BACKSTAB_KNIGHT_MODIFIER));
+                * boostLevel) * boostTerrain * BACKSTAB_KNIGHT_MODIFIER * damageModifier));
     }
 
     @Override
     public void target(final Wizard wizard) {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * BACKSTAB_WIZARD_MODIFIER));
+                * boostTerrain * BACKSTAB_WIZARD_MODIFIER * damageModifier));
         wizard.setDamageReceived(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE
                 * boostLevel) * boostTerrain));
     }
@@ -48,7 +49,7 @@ public final class Backstab implements Ability {
     public void target(final Rogue rogue) {
         setBoostTerrain(rogue);
         rogue.takeDamage(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * BACKSTAB_ROGUE_MODIFIER));
+                * boostTerrain * BACKSTAB_ROGUE_MODIFIER * damageModifier));
     }
 
     @Override
@@ -76,5 +77,10 @@ public final class Backstab implements Ability {
         if (abilityCounter == CRITICAL_HIT_NUMBER) {
             abilityCounter = 0;
         }
+    }
+
+    @Override
+    public void setDamageModifier(float modifier) {
+        damageModifier = modifier;
     }
 }

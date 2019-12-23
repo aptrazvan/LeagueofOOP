@@ -34,4 +34,16 @@ public final class Wizard extends Player {
     public void addDamageReceived(final int damage) {
         damageReceived += damage;
     }
+
+    public Context getContext() {
+        Context context = null;
+        if ((float)1/4 * getMaxHP() < getHP() && getHP() < (float)1/2 * getMaxHP()) {
+            context = new Context(new WizardGainDamage());
+        } else if(getHP() < (float)1/4 * getMaxHP()) {
+            context = new Context(new WizardGainHP());
+        }
+
+        return context;
+
+    }
 }

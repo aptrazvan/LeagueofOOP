@@ -15,6 +15,7 @@ public final class Paralysis implements Ability {
     private float boostTerrain = 0;
     private int damage = 0;
     private int overtime = 0;
+    private float damageModifier = 0;
 
     @Override
     public void target(final Player player) {
@@ -25,7 +26,7 @@ public final class Paralysis implements Ability {
     public void target(final Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
         damage = Math.round((PARALYSIS_BASE_DAMAGE + PARALYSIS_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * PARALYSIS_PYROMANCER_MODIFIER);
+                * boostTerrain * PARALYSIS_PYROMANCER_MODIFIER * damageModifier);
         pyromancer.takeDamage(damage);
         pyromancer.addEffect(2, overtime, damage);
         pyromancer.addEffect(1, overtime, 0);
@@ -35,7 +36,7 @@ public final class Paralysis implements Ability {
     public void target(final Knight knight) {
         setBoostTerrain(knight);
         damage = Math.round((PARALYSIS_BASE_DAMAGE + PARALYSIS_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * PARALYSIS_KNIGHT_MODIFIER);
+                * boostTerrain * PARALYSIS_KNIGHT_MODIFIER * damageModifier);
         knight.takeDamage(damage);
         knight.addEffect(2, overtime, damage);
         knight.addEffect(1, overtime, 0);
@@ -46,7 +47,7 @@ public final class Paralysis implements Ability {
     public void target(final Wizard wizard) {
         setBoostTerrain(wizard);
         damage = Math.round((PARALYSIS_BASE_DAMAGE + PARALYSIS_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * PARALYSIS_WIZARD_MODIFIER);
+                * boostTerrain * PARALYSIS_WIZARD_MODIFIER * damageModifier);
         wizard.takeDamage(damage);
         wizard.addEffect(2, overtime, damage);
         wizard.addEffect(1, overtime, 0);
@@ -59,7 +60,7 @@ public final class Paralysis implements Ability {
     public void target(final Rogue rogue) {
         setBoostTerrain(rogue);
         damage = Math.round((PARALYSIS_BASE_DAMAGE + PARALYSIS_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * PARALYSIS_ROGUE_MODIFIER);
+                * boostTerrain * PARALYSIS_ROGUE_MODIFIER * damageModifier);
         rogue.takeDamage(damage);
         rogue.addEffect(2, overtime, damage);
         rogue.addEffect(1, overtime, 0);
@@ -81,5 +82,10 @@ public final class Paralysis implements Ability {
             boostTerrain = 1;
             overtime = PARALYSIS_DURATION;
         }
+    }
+
+    @Override
+    public void setDamageModifier(float modifier) {
+        damageModifier = modifier;
     }
 }

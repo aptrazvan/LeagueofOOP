@@ -11,6 +11,7 @@ public abstract class Player implements Target {
     protected Vector<Ability> abilities;
     private Vector<Integer[]> effects;
     private boolean incapacitated;
+    private float damageModifier;
 
     public Player(final int positionX, final int positionY) {
         level = 0;
@@ -23,27 +24,23 @@ public abstract class Player implements Target {
         incapacitated = false;
     }
 
-    /**
-     *
-     * @return
-     */
-    String getHeroClass() {
+    final String getHeroClass() {
         return heroClass;
     }
 
-    int getLevel() {
+    final int getLevel() {
         return level;
     }
 
-    int getXP() {
+    final int getXP() {
         return xp;
     }
 
-    void gainXP(final int exp) {
+    final void gainXP(final int exp) {
         xp += exp;
     }
 
-    public void levelUp() {
+    public final void levelUp() {
         while (xp >= XPTable.getInstance().getTable().get(level + 1)) {
             level++;
             resetHP();
@@ -54,20 +51,24 @@ public abstract class Player implements Target {
         }
     }
 
-    public void takeDamage(final int damage) {
+    public final void takeDamage(final int damage) {
         health -= damage;
     }
 
-    int getHP() {
+    final int getHP() {
         return health;
     }
 
-    void resetHP() {
+    final void gainHP(final int HP) {
+        health += HP;
+    }
+
+    final void resetHP() {
         health = HPTable.getInstance().getTable().get(heroClass + "Start")
                 + level * HPTable.getInstance().getTable().get(heroClass + "Level");
     }
 
-    void move(final String direction) {
+    final void move(final String direction) {
         switch (direction) {
             case "U":
                 position[0]--;
@@ -86,23 +87,23 @@ public abstract class Player implements Target {
         }
     }
 
-    public int[] getPosition() {
+    public final int[] getPosition() {
         return position;
     }
 
-    boolean equalsPosition(final int[] playerPosition) {
+    final boolean equalsPosition(final int[] playerPosition) {
         return position[0] == playerPosition[0] && position[1] == playerPosition[1];
     }
 
-    Vector<Ability> getAbilities() {
+    final Vector<Ability> getAbilities() {
         return abilities;
     }
 
-    public void accept(Ability ability) {
+    public void accept(final Ability ability) {
         ability.target(this);
     }
 
-    void addEffect(final int effect, final int duration, final int damage) {
+    final void addEffect(final int effect, final int duration, final int damage) {
 
         for (Integer[] integers : effects) {
             if (integers[0] == effect && integers[1] < duration) {
@@ -115,7 +116,7 @@ public abstract class Player implements Target {
         effects.add(new Integer[]{effect, duration, damage});
     }
 
-    void resolveEffects() {
+    final void resolveEffects() {
         for (int i = 0; i < effects.size(); i++) {
             effects.get(i)[1]--;
 
@@ -136,11 +137,29 @@ public abstract class Player implements Target {
         }
     }
 
-    void setIncapacitated(final boolean capacity) {
+    final void setIncapacitated(final boolean capacity) {
         incapacitated = capacity;
     }
 
-    boolean getIncapacitated() {
+    final boolean getIncapacitated() {
         return incapacitated;
+    }
+
+    public void setDamageModifier(float damageModifier) {
+        this.damageModifier = damageModifier;
+    }
+
+    public Context getContext() {
+        return null;
+    }
+
+    public float getDamageModifier() {
+        return damageModifier;
+    }
+
+    public void setAbilityModifier() {
+        for (Ability ability: abilities) {
+            ability.setDamageModifier(damageModifier);
+        }
     }
 }

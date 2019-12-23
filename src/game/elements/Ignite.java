@@ -15,6 +15,7 @@ public final class Ignite implements Ability {
     private int boostLevel = 0;
     private float boostTerrain = 0;
     private int damage = 0;
+    private float damageModifier = 0;
 
     @Override
     public void target(final Player player) {
@@ -25,9 +26,9 @@ public final class Ignite implements Ability {
     public void target(final Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round((IGNITE_BASE_DAMAGE + IGNITE_BOOST_DAMAGE
-                * boostLevel) * boostTerrain * IGNITE_PYROMANCER_MODIFIER));
+                * boostLevel) * boostTerrain * IGNITE_PYROMANCER_MODIFIER * damageModifier));
         damage = Math.round((IGNITE_EFFECT_DAMAGE + IGNITE_EFFECT_BOOST * boostLevel)
-                * boostTerrain * IGNITE_PYROMANCER_MODIFIER);
+                * boostTerrain * IGNITE_PYROMANCER_MODIFIER * damageModifier);
         pyromancer.addEffect(0, IGNITE_DURATION, damage);
     }
 
@@ -35,9 +36,9 @@ public final class Ignite implements Ability {
     public void target(final Knight knight) {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round((IGNITE_BASE_DAMAGE + IGNITE_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * IGNITE_KNIGHT_MODIFIER));
+                * boostTerrain * IGNITE_KNIGHT_MODIFIER * damageModifier));
         damage = Math.round((IGNITE_EFFECT_DAMAGE + IGNITE_EFFECT_BOOST * boostLevel)
-                * boostTerrain * IGNITE_KNIGHT_MODIFIER);
+                * boostTerrain * IGNITE_KNIGHT_MODIFIER * damageModifier);
         knight.addEffect(0, IGNITE_DURATION, damage);
     }
 
@@ -45,9 +46,9 @@ public final class Ignite implements Ability {
     public void target(final Wizard wizard) {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((IGNITE_BASE_DAMAGE + IGNITE_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * IGNITE_WIZARD_MODIFIER));
+                * boostTerrain * IGNITE_WIZARD_MODIFIER * damageModifier));
         damage = Math.round((IGNITE_EFFECT_DAMAGE + IGNITE_EFFECT_BOOST * boostLevel)
-                * boostTerrain * IGNITE_WIZARD_MODIFIER);
+                * boostTerrain * IGNITE_WIZARD_MODIFIER * damageModifier);
         wizard.addEffect(0, IGNITE_DURATION, damage);
         wizard.addDamageReceived(Math.round((IGNITE_BASE_DAMAGE + IGNITE_BOOST_DAMAGE
                 * boostLevel) * boostTerrain));
@@ -57,9 +58,9 @@ public final class Ignite implements Ability {
     public void target(final Rogue rogue) {
         setBoostTerrain(rogue);
         rogue.takeDamage(Math.round((IGNITE_BASE_DAMAGE + IGNITE_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * IGNITE_ROGUE_MODIFIER));
+                * boostTerrain * IGNITE_ROGUE_MODIFIER * damageModifier));
         damage = Math.round((IGNITE_EFFECT_DAMAGE + IGNITE_EFFECT_BOOST * boostLevel)
-                * boostTerrain * IGNITE_ROGUE_MODIFIER);
+                * boostTerrain * IGNITE_ROGUE_MODIFIER * damageModifier);
         rogue.addEffect(0, IGNITE_DURATION, damage);
     }
 
@@ -76,5 +77,10 @@ public final class Ignite implements Ability {
         } else {
             boostTerrain = 1;
         }
+    }
+
+    @Override
+    public void setDamageModifier(float modifier) {
+        damageModifier = modifier;
     }
 }

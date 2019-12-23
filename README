@@ -1,0 +1,25 @@
+Student: Apetroaie Razvan-Mihai
+Grupa: 323CA
+
+
+	In scopul organizarii proiectului, am impartit clasele proiectului in dosarele "game.elements", unde se gasesc elementele jocului precum clasele jucatorilor si 
+abilitatile acestora, si "main", unde se face citirea din fisier si rularea jocului din clasa "Game".
+
+game.elements
+	Clasele "XPTabel", "HPTable" si "Map" au fost create de tip Singleton datorita unicitatii acestora. "XPTabel" si "HPTable" contin HashMap-uri cu datele 
+specifice experintei de "levelup", respectiv punctelor de viata ale caracterelor. In "Map" se salveaza matricea cu tipurile de teren pentru fiecare camp.
+	Clasa abstracta "Player" este clasa utilizata la implementarea celor 4 tipuri de caractere ale jocului, abordate in clasele "Pyromancer", "Knight", "Wizard" si 
+"Rogue". "Player" detine informatiile legate de nivel, experienta, pozitie, abilitati, efecte s.a., urmate de setter-ii si getter-ii lor. Metodele "levelUp" si 
+"resetHP" se folosesc de clasele Singleton mentionate anterior. "addEffect" si "resolveEffevt" se ocupa de administrarea efectelor specifice abilitatilor "Ignite", 
+"Slam" si "Paralysis", adica "damage over time" si "incapacitate".
+	Conceptul de "Double Dispatch" a fost implementat prin tehnica "Visitor" la nivelul abilitatilor caracterelor. Visitor-ul, "Ability", poate "vizita", sau da 
+target altfel spus, clasa "PLayer" si fiecare clasa mostenita a acesteia. Interfata "Target" este "Visitable" si prin urmare accepta abilitatile pe care le primeste. 
+	Abilitatile implementeaza interfata "Ability", iar jucatorii implementeaza "Target". Astfel, "Visitor", desfasurat prin intermediul metodelor "target" si 
+"accept", rezolva implementarea abilitatilor cu parametrii actualizati pentru clasa ce participa la lupta intr-o maniera organizata.
+	Clasele mostenite jucatorilor adauga abilitatile specifice si actualizeaza status-urile clasei lor. Fiecare abilitate este implementata in clasa proprie si 
+seteaza damage-ul primit prin "target" conform relatiilor claselor participante la lupta, tinandu-se cont de teren, efecte si orice alt factor.
+
+main
+	Clasele auxiliare "Pair" si "Triplet" au fost utilizate la stocarea datelor in vectori, precum locatia jucatorilor. In clasa "Main", se realizeaza citirea din 
+fisier prin intermediul claselor "GameInput" si "GameInputLoader". Se creeaza lista de jucatori "players", se desfasoara jocul cu parametrii cititi, dupa care se 
+realizeaza scrierea in fisier prin apelarea "listResults" din clasa "Game".

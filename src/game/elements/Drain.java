@@ -13,6 +13,7 @@ import static game.elements.Constants.PERCENT;
 public final class Drain implements Ability {
     private int boostLevel = 0;
     private float boostTerrain = 0;
+    private float damageModifier = 0;
 
     @Override
     public void target(final Player player) {
@@ -22,9 +23,9 @@ public final class Drain implements Ability {
     @Override
     public void target(final Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
-        pyromancer.takeDamage(Math.round((DRAIN_BASE_DAMAGE  + DRAIN_BOOST_DAMAGE * boostLevel)
+        pyromancer.takeDamage(Math.round((DRAIN_BASE_DAMAGE + DRAIN_BOOST_DAMAGE * boostLevel)
                 / PERCENT * Math.min(COEFFICIENT1 * pyromancer.getMaxHP(), pyromancer.getHP())
-                * boostTerrain * DRAIN_PYROMANCER_MODIFIER));
+                * boostTerrain * DRAIN_PYROMANCER_MODIFIER * damageModifier));
     }
 
     @Override
@@ -32,7 +33,7 @@ public final class Drain implements Ability {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round((DRAIN_BASE_DAMAGE + DRAIN_BOOST_DAMAGE * boostLevel)
                 / PERCENT * Math.min(COEFFICIENT1 * knight.getMaxHP(), knight.getHP())
-                * boostTerrain * DRAIN_KNIGHT_MODIFIER));
+                * boostTerrain * DRAIN_KNIGHT_MODIFIER * damageModifier));
     }
 
     @Override
@@ -40,7 +41,7 @@ public final class Drain implements Ability {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((DRAIN_BASE_DAMAGE + DRAIN_BOOST_DAMAGE * boostLevel)
                 / PERCENT * Math.min(COEFFICIENT1 * wizard.getMaxHP(), wizard.getHP())
-                * boostTerrain * DRAIN_WIZARD_MODIFIER));
+                * boostTerrain * DRAIN_WIZARD_MODIFIER * damageModifier));
     }
 
     @Override
@@ -48,7 +49,7 @@ public final class Drain implements Ability {
         setBoostTerrain(rogue);
         rogue.takeDamage(Math.round((DRAIN_BASE_DAMAGE + DRAIN_BOOST_DAMAGE * boostLevel)
                 / PERCENT * Math.min(COEFFICIENT1 * rogue.getMaxHP(), rogue.getHP())
-                * boostTerrain * DRAIN_ROGUE_MODIFIER));
+                * boostTerrain * DRAIN_ROGUE_MODIFIER * damageModifier));
     }
 
     @Override
@@ -64,5 +65,10 @@ public final class Drain implements Ability {
         } else {
             boostTerrain = 1;
         }
+    }
+
+    @Override
+    public void setDamageModifier(float modifier) {
+        damageModifier = modifier;
     }
 }

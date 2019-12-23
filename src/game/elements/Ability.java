@@ -8,4 +8,5 @@ public interface Ability {
     void target(Rogue rogue);
     void levelUp();
     void setBoostTerrain(Player player);
+    void setDamageModifier(float modifier);
 }

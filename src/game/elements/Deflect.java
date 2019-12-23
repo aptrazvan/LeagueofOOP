@@ -12,6 +12,7 @@ public final class Deflect implements Ability {
     private int boostLevel = 0;
     private float boostTerrain = 0;
     private int damageReceived;
+    private float damageModifier = 0;
 
     @Override
     public void target(final Player player) {
@@ -23,14 +24,14 @@ public final class Deflect implements Ability {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round(Math.min(DEFLECT_BASE_DAMAGE / PERCENT
                 + 2.0f / PERCENT * boostLevel, MAX_DEFLECT / PERCENT)
-                * damageReceived * boostTerrain * DEFLECT_PYROMANCER_MODIFIER));
+                * damageReceived * boostTerrain * DEFLECT_PYROMANCER_MODIFIER * damageModifier));
     }
 
     @Override
     public void target(final Knight knight) {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round(Math.min(DEFLECT_BASE_DAMAGE + 2 * boostLevel, MAX_DEFLECT)
-                / PERCENT * damageReceived * boostTerrain * DEFLECT_KNIGHT_MODIFIER));
+                / PERCENT * damageReceived * boostTerrain * DEFLECT_KNIGHT_MODIFIER * damageModifier));
     }
 
     @Override
@@ -42,7 +43,7 @@ public final class Deflect implements Ability {
     public void target(final Rogue rogue) {
         setBoostTerrain(rogue);
         rogue.takeDamage(Math.round(Math.min(DEFLECT_BASE_DAMAGE + 2 * boostLevel, MAX_DEFLECT)
-                / PERCENT * damageReceived * boostTerrain * DEFLECT_ROGUE_MODIFIER));
+                / PERCENT * damageReceived * boostTerrain * DEFLECT_ROGUE_MODIFIER * damageModifier));
 
     }
 
@@ -63,5 +64,10 @@ public final class Deflect implements Ability {
 
     public void setDamage(final int damage) {
         damageReceived = damage;
+    }
+
+    @Override
+    public void setDamageModifier(float modifier) {
+        damageModifier = modifier;
     }
 }

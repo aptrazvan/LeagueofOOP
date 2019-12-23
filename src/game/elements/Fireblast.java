@@ -11,6 +11,7 @@ import static game.elements.Constants.VOLCANO_BOOST;
 public final class Fireblast implements Ability {
     private int boostLevel = 0;
     private float boostTerrain = 0;
+    private float damageModifier = 0;
 
     @Override
     public void target(final Player player) {
@@ -22,21 +23,21 @@ public final class Fireblast implements Ability {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round((FIREBLAST_BASE_DAMAGE
                 + FIREBLAST_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * FIREBLAST_PYROMANCER_MODIFIER));
+                * boostTerrain * FIREBLAST_PYROMANCER_MODIFIER * damageModifier));
     }
 
     @Override
     public void target(final Knight knight) {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round((FIREBLAST_BASE_DAMAGE + FIREBLAST_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * FIREBLAST_KNIGHT_MODIFIER));
+                * boostTerrain * FIREBLAST_KNIGHT_MODIFIER * damageModifier));
     }
 
     @Override
     public void target(final Wizard wizard) {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((FIREBLAST_BASE_DAMAGE + FIREBLAST_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * FIREBLAST_WIZARD_MODIFIER));
+                * boostTerrain * FIREBLAST_WIZARD_MODIFIER * damageModifier));
         wizard.setDamageReceived(Math.round((FIREBLAST_BASE_DAMAGE + FIREBLAST_BOOST_DAMAGE
                 * boostLevel) * boostTerrain));
     }
@@ -45,7 +46,7 @@ public final class Fireblast implements Ability {
     public void target(final Rogue rogue) {
         setBoostTerrain(rogue);
         rogue.takeDamage(Math.round((FIREBLAST_BASE_DAMAGE + FIREBLAST_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * FIREBLAST_ROGUE_MODIFIER));
+                * boostTerrain * FIREBLAST_ROGUE_MODIFIER * damageModifier));
     }
 
     @Override
@@ -61,5 +62,10 @@ public final class Fireblast implements Ability {
         } else {
             boostTerrain = 1;
         }
+    }
+
+    @Override
+    public void setDamageModifier(float modifier) {
+        damageModifier = modifier;
     }
 }

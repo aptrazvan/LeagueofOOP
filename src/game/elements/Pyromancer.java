@@ -19,4 +19,16 @@ public final class Pyromancer extends Player {
     public int getMaxHP() {
         return PYROMANCER_MAX_HP + PYROMANCER_LEVEL_HP_BONUS * level;
     }
+
+    public Context getContext() {
+        Context context = null;
+        if ((float)1/4 * getMaxHP() < getHP() && getHP() < (float)1/3 * getMaxHP()) {
+            context = new Context(new PyromancerGainDamage());
+        } else if(getHP() < (float)1/4 * getMaxHP()) {
+            context = new Context(new PyromancerGainHP());
+        }
+
+        return context;
+
+    }
 }

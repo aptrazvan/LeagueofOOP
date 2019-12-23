@@ -14,6 +14,7 @@ import static game.elements.Constants.PERCENT;
 public final class Execute implements Ability {
     private int boostLevel = 0;
     private float boostTerrain = 0;
+    private float damageModifier = 0;
 
     @Override
     public void target(final Player player) {
@@ -29,7 +30,7 @@ public final class Execute implements Ability {
             pyromancer.takeDamage(pyromancer.getHP());
         } else {
             pyromancer.takeDamage(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE
-                    * boostLevel) * boostTerrain * EXECUTE_PYROMANCER_MODIFIER));
+                    * boostLevel) * boostTerrain * EXECUTE_PYROMANCER_MODIFIER * damageModifier));
         }
     }
 
@@ -42,7 +43,7 @@ public final class Execute implements Ability {
             knight.takeDamage(knight.getHP());
         } else {
             knight.takeDamage(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE
-                    * boostLevel) * boostTerrain * EXECUTE_KNIGHT_MODIFIER));
+                    * boostLevel) * boostTerrain * EXECUTE_KNIGHT_MODIFIER * damageModifier));
         }
     }
 
@@ -56,7 +57,7 @@ public final class Execute implements Ability {
             wizard.takeDamage(wizard.getHP());
         } else {
             wizard.takeDamage(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE
-                    * boostLevel) * boostTerrain * EXECUTE_WIZARD_MODIFIER));
+                    * boostLevel) * boostTerrain * EXECUTE_WIZARD_MODIFIER * damageModifier));
             wizard.setDamageReceived(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE
                     * boostLevel) * boostTerrain));
         }
@@ -71,7 +72,7 @@ public final class Execute implements Ability {
             rogue.takeDamage(rogue.getHP());
         } else {
             rogue.takeDamage(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE * boostLevel)
-                    * boostTerrain * EXECUTE_ROGUE_MODIFIER));
+                    * boostTerrain * EXECUTE_ROGUE_MODIFIER * damageModifier));
         }
     }
 
@@ -88,5 +89,10 @@ public final class Execute implements Ability {
         } else {
             boostTerrain = 1;
         }
+    }
+
+    @Override
+    public void setDamageModifier(float modifier) {
+        damageModifier = modifier;
     }
 }

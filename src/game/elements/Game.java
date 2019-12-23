@@ -25,6 +25,10 @@ public final class Game {
         System.out.println("Battle: " + player1.getHeroClass() + " " + player2.getHeroClass());
         System.out.println(player1.getHP() + " " + player2.getHP());
 
+        /*float damageModifier = player1.getDamageModifier();
+        player1.setDamageModifier(player2.getDamageModifier());
+        player2.setDamageModifier(damageModifier);*/
+
         for (int i = 0; i < player1.getAbilities().size(); i++) {
             if (!(player1.getAbilities().get(i) instanceof Deflect)) {
                 player2.accept(player1.getAbilities().get(i));
@@ -83,6 +87,16 @@ public final class Game {
             for (Player player : players) {
                 if (player.getHP() > 0) {
                     player.setIncapacitated(false);
+
+                    Context context = player.getContext();
+
+                    if (context != null) {
+                        context.executeStrategy(player);
+                    } else {
+                        player.setDamageModifier(1);
+                    }
+
+                    player.setAbilityModifier();
                 }
 
                 player.resolveEffects();

@@ -1,13 +1,8 @@
 package main;
 
-import game.elements.Game;
-import game.elements.Knight;
-import game.elements.Map;
-import game.elements.Player;
-import game.elements.Pyromancer;
-import game.elements.Rogue;
-import game.elements.Wizard;
+import game.elements.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -18,7 +13,11 @@ public final class Main {
     }
 
     public static void main(final String[] args) throws IOException {
-        GameInputLoader gameInputLoader = new GameInputLoader(args[0], args[1]);
+        String filePath = (new File("")).getAbsolutePath();
+        String path1 = filePath.concat("/src/main/input.in");
+        String path2 = filePath.concat("/src/main/output.out");
+        //GameInputLoader gameInputLoader = new GameInputLoader(args[0], args[1]);
+        GameInputLoader gameInputLoader = new GameInputLoader(path1, path2);
         GameInput gameInput = gameInputLoader.load();
 
         Pair<Integer, Integer> terrainDim = gameInput.getTerrainDim();
@@ -29,10 +28,12 @@ public final class Main {
 
         Map.getInstance(terrainDim, terrainType);
 
+        PlayerFactory playerFactory = new PlayerFactory();
         ArrayList<Player> players = new ArrayList<>();
 
         for (Triplet<String, Integer, Integer> stringIntegerIntegerTriplet : playerLocation) {
-            switch (stringIntegerIntegerTriplet.getFirst()) {
+            players.add(playerFactory.getPlayer(stringIntegerIntegerTriplet));
+            /*switch (stringIntegerIntegerTriplet.getFirst()) {
                 case "P":
                     players.add(new Pyromancer(stringIntegerIntegerTriplet.getSecond(),
                             stringIntegerIntegerTriplet.getThird()));
@@ -51,13 +52,14 @@ public final class Main {
                     break;
                 default:
                     break;
-            }
+            }*/
         }
 
         Game game = new Game(roundsNumber, players, moves);
 
         game.play();
-        game.listResults(args[0], args[1]);
+        //game.listResults(args[0], args[1]);
+        game.listResults(path1, path2);
 
     }
 }
