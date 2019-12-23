@@ -55,7 +55,31 @@ public final class Main {
             }*/
         }
 
-        Game game = new Game(roundsNumber, players, moves);
+        ArrayList<Integer> angelsNumber = gameInput.getAngelsNumber();
+        ArrayList<String> angelsLocation = gameInput.getAngels();
+
+        AngelFactory angelFactory = new AngelFactory();
+        ArrayList<Angel> angels = new ArrayList<>();
+        int angelCounter = 0;
+
+        for (int i = 0; i < roundsNumber; i++) {
+            for (int j = 0; j < angelsNumber.get(i); j++) {
+                int index = angelsLocation.get(angelCounter).indexOf(",");
+                String angelName = angelsLocation.get(angelCounter).substring(0, index);
+                String position = angelsLocation.get(angelCounter).substring(index + 1);
+
+                int indexPositionX = position.indexOf(",");
+                int positionX = Integer.parseInt(position.substring(0, indexPositionX));
+                int positionY = Integer.parseInt(position.substring(indexPositionX + 1));
+
+                angels.add(angelFactory.getAngel(angelName, i, positionX, positionY));
+
+                angelCounter++;
+            }
+        }
+
+
+        Game game = new Game(roundsNumber, players, moves, angels);
 
         game.play();
         //game.listResults(args[0], args[1]);

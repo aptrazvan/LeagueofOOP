@@ -20,6 +20,8 @@ public final class GameInputLoader {
         ArrayList<Triplet<String, Integer, Integer>> players = new ArrayList<>();
         int roundsNumber = -1;
         ArrayList<String> moves = new ArrayList<>();
+        ArrayList<Integer> angelsNumber = new ArrayList<>();
+        ArrayList<String> angels = new ArrayList<>();
 
         try {
             FileSystem fs = new FileSystem(mInputPath, mOutputPath);
@@ -47,12 +49,21 @@ public final class GameInputLoader {
                 }
             }
 
+            for (int i = 0; i < roundsNumber; i++) {
+                angelsNumber.add(fs.nextInt());
+
+                for (int j = 0; j < angelsNumber.get(i); j++) {
+                    angels.add(fs.nextWord());
+                }
+            }
+
             fs.close();
 
         } catch (Exception e1) {
             e1.printStackTrace();
         }
 
-        return new GameInput(terrainDim, terrainType, playersNumber, players, roundsNumber, moves);
+        return new GameInput(terrainDim, terrainType, playersNumber, players,
+                roundsNumber, moves, angelsNumber, angels);
     }
 }

@@ -10,6 +10,8 @@ public final class GameInput {
     private ArrayList<Triplet<String, Integer, Integer>> players;
     private int roundsNumber;
     private ArrayList<String> moves;
+    private ArrayList<Integer> angelsNumber;
+    private ArrayList<String> angels;
 
     public GameInput() {
         terrainType = null;
@@ -22,13 +24,17 @@ public final class GameInput {
     public GameInput(final Pair<Integer, Integer> terrainDim,
                      final ArrayList<String> terrainType, final int playersNumber,
                      final ArrayList<Triplet<String, Integer, Integer>> players,
-                     final int roundsNumber, final ArrayList<String> moves) {
+                     final int roundsNumber, final ArrayList<String> moves,
+                     final ArrayList<Integer> angelsNumber,
+                     final ArrayList<String> angels) {
         this.terrainDim = terrainDim;
         this.terrainType = terrainType;
         this.playersNumber = playersNumber;
         this.players = players;
         this.roundsNumber = roundsNumber;
         this.moves = moves;
+        this.angelsNumber = angelsNumber;
+        this.angels = angels;
     }
 
     public Pair<Integer, Integer> getTerrainDim() {
@@ -60,5 +66,13 @@ public final class GameInput {
         boolean membersNotEmpty = playersNumber > 0 && roundsNumber > 0;
 
         return membersInstantiated && membersNotEmpty;
+    }
+
+    public ArrayList<Integer> getAngelsNumber() {
+        return angelsNumber;
+    }
+
+    public ArrayList<String> getAngels() {
+        return angels;
     }
 }

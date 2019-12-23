@@ -59,6 +59,10 @@ public abstract class Player implements Target {
         return health;
     }
 
+    final void setHP(final int HP) {
+        health = HP;
+    }
+
     final void gainHP(final int HP) {
         health += HP;
     }
@@ -147,6 +151,10 @@ public abstract class Player implements Target {
 
     public void setDamageModifier(float damageModifier) {
         this.damageModifier = damageModifier;
+    }
+
+    public void addDamageModifier(float damageModifier) {
+        this.damageModifier += damageModifier;
     }
 
     public Context getContext() {

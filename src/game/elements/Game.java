@@ -12,12 +12,15 @@ public final class Game {
     private int roundsNumber;
     private ArrayList<Player> players;
     private ArrayList<String> moves;
+    private ArrayList<Angel> angels;
 
     public Game(final int rounds, final ArrayList<Player> playersList,
-                final ArrayList<String> movesList) {
+                final ArrayList<String> movesList,
+                final ArrayList<Angel> angelsList) {
         roundsNumber = rounds;
         players = playersList;
         moves = movesList;
+        angels = angelsList;
     }
 
     public void battle(final Player player1, final Player player2) {
@@ -114,6 +117,19 @@ public final class Game {
                             && players.get(i).getHP() > 0 && players.get(j).getHP() > 0) {
                         battle(players.get(i), players.get(j));
                     }
+                }
+            }
+
+            for (Angel angel: angels) {
+                for (Player player: players) {
+                    if (angel.equalsPosition(player.getPosition())) {
+                        if (!(angel instanceof TheDoomer) && player.getHP() > 0) {
+                            angel.interact(player);
+                        } else if (angel instanceof TheDoomer && player.getHP() <= 0) {
+                            angel.interact(player);
+                        }
+                    }
+
                 }
             }
 
