@@ -26,21 +26,21 @@ public final class Backstab implements Ability {
     public void target(final Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE
-                * boostLevel) * boostTerrain * BACKSTAB_PYROMANCER_MODIFIER * damageModifier));
+                * boostLevel) * boostTerrain * (BACKSTAB_PYROMANCER_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
     public void target(final Knight knight) {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE
-                * boostLevel) * boostTerrain * BACKSTAB_KNIGHT_MODIFIER * damageModifier));
+                * boostLevel) * boostTerrain * (BACKSTAB_KNIGHT_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
     public void target(final Wizard wizard) {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * BACKSTAB_WIZARD_MODIFIER * damageModifier));
+                * boostTerrain * (BACKSTAB_WIZARD_MODIFIER - 1 + damageModifier)));
         wizard.setDamageReceived(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE
                 * boostLevel) * boostTerrain));
     }
@@ -49,7 +49,7 @@ public final class Backstab implements Ability {
     public void target(final Rogue rogue) {
         setBoostTerrain(rogue);
         rogue.takeDamage(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * BACKSTAB_ROGUE_MODIFIER * damageModifier));
+                * boostTerrain * (BACKSTAB_ROGUE_MODIFIER - 1 + damageModifier)));
     }
 
     @Override

@@ -27,7 +27,15 @@ public class LifeGiver extends Angel {
                 break;
         }
 
+        int maxHP = HPTable.getInstance().getTable().get(player.getHeroClass() + "Start")
+                + player.getLevel() * HPTable.getInstance().getTable().get(player.getHeroClass() + "Level");
+
         player.gainHP(modifier);
+
+        if (player.getHP() > maxHP) {
+            player.resetHP();
+        }
+
         Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
                 0, player.getId());
     }

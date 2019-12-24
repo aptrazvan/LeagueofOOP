@@ -22,7 +22,7 @@ public final class Slam implements Ability {
     public void target(final Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round((SLAM_BASE_DAMAGE + SLAM_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * SLAM_PYROMANCER_MODIFIER * damageModifier));
+                * boostTerrain * (SLAM_PYROMANCER_MODIFIER - 1 + damageModifier)));
         pyromancer.addEffect(1, 1, 0);
     }
 
@@ -30,7 +30,7 @@ public final class Slam implements Ability {
     public void target(final Knight knight) {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round((SLAM_BASE_DAMAGE + SLAM_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * SLAM_KNIGHT_MODIFIER * damageModifier));
+                * boostTerrain * (SLAM_KNIGHT_MODIFIER - 1 + damageModifier)));
         knight.addEffect(1, 1, 0);
     }
 
@@ -38,7 +38,7 @@ public final class Slam implements Ability {
     public void target(final Wizard wizard) {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((SLAM_BASE_DAMAGE + SLAM_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * SLAM_WIZARD_MODIFIER * damageModifier));
+                * boostTerrain * (SLAM_WIZARD_MODIFIER - 1 + damageModifier)));
         wizard.addEffect(1, 1, 0);
         wizard.addDamageReceived(Math.round((SLAM_BASE_DAMAGE + SLAM_BOOST_DAMAGE * boostLevel)
                 * boostTerrain));
@@ -48,7 +48,7 @@ public final class Slam implements Ability {
     public void target(final Rogue rogue) {
         setBoostTerrain(rogue);
         rogue.takeDamage(Math.round((SLAM_BASE_DAMAGE + SLAM_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * SLAM_ROGUE_MODIFIER * damageModifier));
+                * boostTerrain * (SLAM_ROGUE_MODIFIER - 1 + damageModifier)));
         rogue.addEffect(1, 1, 0);
     }
 

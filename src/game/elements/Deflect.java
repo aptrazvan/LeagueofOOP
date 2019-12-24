@@ -24,14 +24,14 @@ public final class Deflect implements Ability {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round(Math.min(DEFLECT_BASE_DAMAGE / PERCENT
                 + 2.0f / PERCENT * boostLevel, MAX_DEFLECT / PERCENT)
-                * damageReceived * boostTerrain * DEFLECT_PYROMANCER_MODIFIER * damageModifier));
+                * damageReceived * boostTerrain * (DEFLECT_PYROMANCER_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
     public void target(final Knight knight) {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round(Math.min(DEFLECT_BASE_DAMAGE + 2 * boostLevel, MAX_DEFLECT)
-                / PERCENT * damageReceived * boostTerrain * DEFLECT_KNIGHT_MODIFIER * damageModifier));
+                / PERCENT * damageReceived * boostTerrain * (DEFLECT_KNIGHT_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
@@ -43,7 +43,7 @@ public final class Deflect implements Ability {
     public void target(final Rogue rogue) {
         setBoostTerrain(rogue);
         rogue.takeDamage(Math.round(Math.min(DEFLECT_BASE_DAMAGE + 2 * boostLevel, MAX_DEFLECT)
-                / PERCENT * damageReceived * boostTerrain * DEFLECT_ROGUE_MODIFIER * damageModifier));
+                / PERCENT * damageReceived * boostTerrain * (DEFLECT_ROGUE_MODIFIER - 1 + damageModifier)));
 
     }
 

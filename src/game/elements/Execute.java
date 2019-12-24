@@ -30,7 +30,7 @@ public final class Execute implements Ability {
             pyromancer.takeDamage(pyromancer.getHP());
         } else {
             pyromancer.takeDamage(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE
-                    * boostLevel) * boostTerrain * EXECUTE_PYROMANCER_MODIFIER * damageModifier));
+                    * boostLevel) * boostTerrain * (EXECUTE_PYROMANCER_MODIFIER + damageModifier - 1)));
         }
     }
 
@@ -43,7 +43,7 @@ public final class Execute implements Ability {
             knight.takeDamage(knight.getHP());
         } else {
             knight.takeDamage(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE
-                    * boostLevel) * boostTerrain * EXECUTE_KNIGHT_MODIFIER * damageModifier));
+                    * boostLevel) * boostTerrain * EXECUTE_KNIGHT_MODIFIER));
         }
     }
 
@@ -53,14 +53,14 @@ public final class Execute implements Ability {
 
         if (wizard.getHP() < Math.min((EXECUTE_BASE_DAMAGE1 + boostLevel), MAX_EXECUTE)
                 / PERCENT * (wizard.getMaxHP())) {
-            wizard.setDamageReceived(wizard.getHP());
             wizard.takeDamage(wizard.getHP());
         } else {
             wizard.takeDamage(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE
-                    * boostLevel) * boostTerrain * EXECUTE_WIZARD_MODIFIER * damageModifier));
-            wizard.setDamageReceived(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE
-                    * boostLevel) * boostTerrain));
+                    * boostLevel) * boostTerrain * (EXECUTE_WIZARD_MODIFIER + damageModifier - 1)));
         }
+
+        wizard.setDamageReceived(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE
+                * boostLevel) * boostTerrain));
     }
 
     @Override
@@ -72,7 +72,7 @@ public final class Execute implements Ability {
             rogue.takeDamage(rogue.getHP());
         } else {
             rogue.takeDamage(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE * boostLevel)
-                    * boostTerrain * EXECUTE_ROGUE_MODIFIER * damageModifier));
+                    * boostTerrain * (EXECUTE_ROGUE_MODIFIER + damageModifier - 1)));
         }
     }
 

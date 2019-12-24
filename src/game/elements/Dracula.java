@@ -36,5 +36,10 @@ public class Dracula extends Angel {
         player.takeDamage(healthModifier);
         Subject.getInstance().setState(4, angelClass, player.getHeroClass(),
                 0, player.getId());
+
+        if (player.getHP() <= 0) {
+            Subject.getInstance().setState(7, player.getHeroClass(), null,
+                    player.getId(), 0);
+        }
     }
 }

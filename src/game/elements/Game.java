@@ -25,8 +25,8 @@ public final class Game {
 
     public void battle(final Player player1, final Player player2) {
         int isDeflect = 0;
-        //System.out.println("Battle: " + player1.getHeroClass() + " " + player2.getHeroClass());
-        //System.out.println(player1.getHP() + " " + player2.getHP());
+        System.out.println("Battle: " + player1.getHeroClass() + " " + player2.getHeroClass());
+        System.out.println(player1.getHP() + " " + player2.getHP());
 
         /*float damageModifier = player1.getDamageModifier();
         player1.setDamageModifier(player2.getDamageModifier());
@@ -58,39 +58,36 @@ public final class Game {
         }
 
         if (player1.getHP() <= 0 && player2.getHP() <= 0) {
-            player1.gainXP(Math.max(0, BASE_XP - (player1.getLevel()
-                    - player2.getLevel()) * COEFFICIENT2));
-            player2.gainXP(Math.max(0, BASE_XP - (player2.getLevel()
-                    - player1.getLevel()) * COEFFICIENT2));
-            player1.levelUp();
-            player2.levelUp();
-            player1.takeDamage(player1.getHP());
-            player2.takeDamage(player2.getHP());
-
             Subject.getInstance().setState(5, player2.getHeroClass(),
                     player1.getHeroClass(), player2.getId(), player1.getId());
             Subject.getInstance().setState(5, player1.getHeroClass(),
                     player2.getHeroClass(), player1.getId(), player2.getId());
+
+            player1.takeDamage(player1.getHP());
+            player2.takeDamage(player2.getHP());
+
         } else if (player2.getHP() <= 0) {
+            Subject.getInstance().setState(5, player2.getHeroClass(),
+                    player1.getHeroClass(), player2.getId(), player1.getId());
+
             player1.gainXP(Math.max(0, BASE_XP - (player1.getLevel()
                     - player2.getLevel()) * COEFFICIENT2));
             player1.levelUp();
             player2.setIncapacitated(true);
 
-            Subject.getInstance().setState(5, player2.getHeroClass(),
-                    player1.getHeroClass(), player2.getId(), player1.getId());
 
         } else if (player1.getHP() <= 0) {
+            Subject.getInstance().setState(5, player1.getHeroClass(),
+                    player2.getHeroClass(), player1.getId(), player2.getId());
+
             player2.gainXP(Math.max(0, BASE_XP - (player2.getLevel()
                     - player1.getLevel()) * COEFFICIENT2));
             player2.levelUp();
             player1.setIncapacitated(true);
 
-            Subject.getInstance().setState(5, player1.getHeroClass(),
-                    player2.getHeroClass(), player1.getId(), player2.getId());
         }
 
-        //System.out.println(player1.getHP() + " " + player2.getHP());
+        System.out.println(player1.getHP() + " " + player2.getHP());
 
     }
 
@@ -103,19 +100,22 @@ public final class Game {
             for (Player player : players) {
                 if (player.getHP() > 0) {
                     player.setIncapacitated(false);
+                }
 
+                player.resolveEffects();
+
+                if (player.getHP() > 0) {
                     Context context = player.getContext();
 
-                    if (context != null) {
+                    if (context != null && player.getIncapacitated() == false) {
                         context.executeStrategy(player);
                     } else {
-                        player.setDamageModifier(1);
+                        //System.out.println(player.getDamageModifier());
+                        //player.setDamageModifier(1);
                     }
 
                     player.setAbilityModifier();
                 }
-
-                player.resolveEffects();
             }
 
             for (int i = 0; i < players.size(); i++) {

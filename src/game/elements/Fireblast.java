@@ -23,21 +23,21 @@ public final class Fireblast implements Ability {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round((FIREBLAST_BASE_DAMAGE
                 + FIREBLAST_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * FIREBLAST_PYROMANCER_MODIFIER * damageModifier));
+                * boostTerrain * (FIREBLAST_PYROMANCER_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
     public void target(final Knight knight) {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round((FIREBLAST_BASE_DAMAGE + FIREBLAST_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * FIREBLAST_KNIGHT_MODIFIER * damageModifier));
+                * boostTerrain * (FIREBLAST_KNIGHT_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
     public void target(final Wizard wizard) {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((FIREBLAST_BASE_DAMAGE + FIREBLAST_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * FIREBLAST_WIZARD_MODIFIER * damageModifier));
+                * boostTerrain * (FIREBLAST_WIZARD_MODIFIER - 1 + damageModifier)));
         wizard.setDamageReceived(Math.round((FIREBLAST_BASE_DAMAGE + FIREBLAST_BOOST_DAMAGE
                 * boostLevel) * boostTerrain));
     }
@@ -46,7 +46,7 @@ public final class Fireblast implements Ability {
     public void target(final Rogue rogue) {
         setBoostTerrain(rogue);
         rogue.takeDamage(Math.round((FIREBLAST_BASE_DAMAGE + FIREBLAST_BOOST_DAMAGE * boostLevel)
-                * boostTerrain * FIREBLAST_ROGUE_MODIFIER * damageModifier));
+                * boostTerrain * (FIREBLAST_ROGUE_MODIFIER - 1 + damageModifier)));
     }
 
     @Override

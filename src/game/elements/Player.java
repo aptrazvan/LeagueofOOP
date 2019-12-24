@@ -23,6 +23,7 @@ public abstract class Player implements Target {
         abilities = new Vector<>();
         effects = new Vector<>();
         incapacitated = false;
+        damageModifier = 1;
     }
 
     final String getHeroClass() {
@@ -42,21 +43,18 @@ public abstract class Player implements Target {
     }
 
     public final void levelUp() {
-        boolean leveledUp = false;
 
         while (xp >= XPTable.getInstance().getTable().get(level + 1)) {
-            leveledUp = true;
             level++;
             resetHP();
+
+            Subject.getInstance().setState(6, heroClass, null, id, level);
 
             for (Ability ability : abilities) {
                 ability.levelUp();
             }
         }
 
-        if (leveledUp == true) {
-            Subject.getInstance().setState(6, heroClass, null, id, level);
-        }
     }
 
     public final void takeDamage(final int damage) {

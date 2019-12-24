@@ -25,7 +25,7 @@ public final class Drain implements Ability {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round((DRAIN_BASE_DAMAGE + DRAIN_BOOST_DAMAGE * boostLevel)
                 / PERCENT * Math.min(COEFFICIENT1 * pyromancer.getMaxHP(), pyromancer.getHP())
-                * boostTerrain * DRAIN_PYROMANCER_MODIFIER * damageModifier));
+                * boostTerrain * (DRAIN_PYROMANCER_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
@@ -33,7 +33,7 @@ public final class Drain implements Ability {
         setBoostTerrain(knight);
         knight.takeDamage(Math.round((DRAIN_BASE_DAMAGE + DRAIN_BOOST_DAMAGE * boostLevel)
                 / PERCENT * Math.min(COEFFICIENT1 * knight.getMaxHP(), knight.getHP())
-                * boostTerrain * DRAIN_KNIGHT_MODIFIER * damageModifier));
+                * boostTerrain * (DRAIN_KNIGHT_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
@@ -41,7 +41,7 @@ public final class Drain implements Ability {
         setBoostTerrain(wizard);
         wizard.takeDamage(Math.round((DRAIN_BASE_DAMAGE + DRAIN_BOOST_DAMAGE * boostLevel)
                 / PERCENT * Math.min(COEFFICIENT1 * wizard.getMaxHP(), wizard.getHP())
-                * boostTerrain * DRAIN_WIZARD_MODIFIER * damageModifier));
+                * boostTerrain * (DRAIN_WIZARD_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
@@ -49,7 +49,7 @@ public final class Drain implements Ability {
         setBoostTerrain(rogue);
         rogue.takeDamage(Math.round((DRAIN_BASE_DAMAGE + DRAIN_BOOST_DAMAGE * boostLevel)
                 / PERCENT * Math.min(COEFFICIENT1 * rogue.getMaxHP(), rogue.getHP())
-                * boostTerrain * DRAIN_ROGUE_MODIFIER * damageModifier));
+                * boostTerrain * (DRAIN_ROGUE_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
