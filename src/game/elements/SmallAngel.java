@@ -3,6 +3,7 @@ package game.elements;
 public class SmallAngel extends Angel {
     public SmallAngel(int round, int positionX, int positionY) {
         super(round, positionX, positionY);
+        angelClass = "SmallAngel";
     }
 
     @Override
@@ -33,5 +34,7 @@ public class SmallAngel extends Angel {
 
         player.addDamageModifier(modifier);
         player.gainHP(healthModifier);
+        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+                0, player.getId());
     }
 }

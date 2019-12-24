@@ -3,6 +3,7 @@ package game.elements;
 public class LifeGiver extends Angel {
     public LifeGiver(int round, int positionX, int positionY) {
         super(round, positionX, positionY);
+        angelClass = "LifeGiver";
     }
 
     @Override
@@ -27,5 +28,7 @@ public class LifeGiver extends Angel {
         }
 
         player.gainHP(modifier);
+        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+                0, player.getId());
     }
 }

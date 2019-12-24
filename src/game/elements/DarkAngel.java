@@ -3,6 +3,7 @@ package game.elements;
 public class DarkAngel extends Angel {
     public DarkAngel(int round, int positionX, int positionY) {
         super(round, positionX, positionY);
+        angelClass = "DarkAngel";
     }
 
     @Override
@@ -27,5 +28,7 @@ public class DarkAngel extends Angel {
         }
 
         player.takeDamage(modifier);
+        Subject.getInstance().setState(4, angelClass, player.getHeroClass(),
+                0, player.getId());
     }
 }

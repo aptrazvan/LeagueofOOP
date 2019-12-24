@@ -33,6 +33,7 @@ public final class Main {
 
         for (Triplet<String, Integer, Integer> stringIntegerIntegerTriplet : playerLocation) {
             players.add(playerFactory.getPlayer(stringIntegerIntegerTriplet));
+            players.get(players.size() - 1).setId(players.size() - 1);
             /*switch (stringIntegerIntegerTriplet.getFirst()) {
                 case "P":
                     players.add(new Pyromancer(stringIntegerIntegerTriplet.getSecond(),

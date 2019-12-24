@@ -3,6 +3,7 @@ package game.elements;
 public class Spawner extends Angel {
     public Spawner(int round, int positionX, int positionY) {
         super(round, positionX, positionY);
+        angelClass = "Spawner";
     }
 
     @Override
@@ -27,5 +28,7 @@ public class Spawner extends Angel {
         }
 
         player.setHP(modifier);
+        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+                0, player.getId());
     }
 }

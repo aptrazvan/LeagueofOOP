@@ -25,8 +25,8 @@ public final class Game {
 
     public void battle(final Player player1, final Player player2) {
         int isDeflect = 0;
-        System.out.println("Battle: " + player1.getHeroClass() + " " + player2.getHeroClass());
-        System.out.println(player1.getHP() + " " + player2.getHP());
+        //System.out.println("Battle: " + player1.getHeroClass() + " " + player2.getHeroClass());
+        //System.out.println(player1.getHP() + " " + player2.getHP());
 
         /*float damageModifier = player1.getDamageModifier();
         player1.setDamageModifier(player2.getDamageModifier());
@@ -66,19 +66,31 @@ public final class Game {
             player2.levelUp();
             player1.takeDamage(player1.getHP());
             player2.takeDamage(player2.getHP());
+
+            Subject.getInstance().setState(5, player1.getHeroClass(),
+                    player2.getHeroClass(), player1.getId(), player2.getId());
+            Subject.getInstance().setState(5, player2.getHeroClass(),
+                    player1.getHeroClass(), player2.getId(), player1.getId());
         } else if (player2.getHP() <= 0) {
             player1.gainXP(Math.max(0, BASE_XP - (player1.getLevel()
                     - player2.getLevel()) * COEFFICIENT2));
             player1.levelUp();
             player2.setIncapacitated(true);
+
+            Subject.getInstance().setState(5, player2.getHeroClass(),
+                    player1.getHeroClass(), player2.getId(), player1.getId());
+
         } else if (player1.getHP() <= 0) {
             player2.gainXP(Math.max(0, BASE_XP - (player2.getLevel()
                     - player1.getLevel()) * COEFFICIENT2));
             player2.levelUp();
             player1.setIncapacitated(true);
+
+            Subject.getInstance().setState(5, player1.getHeroClass(),
+                    player2.getHeroClass(), player1.getId(), player2.getId());
         }
 
-        System.out.println(player1.getHP() + " " + player2.getHP());
+        //System.out.println(player1.getHP() + " " + player2.getHP());
 
     }
 
@@ -86,6 +98,7 @@ public final class Game {
         int currentRound = 0;
 
         while (currentRound < roundsNumber) {
+            Subject.getInstance().setState(0, null, null, currentRound + 1, 0);
 
             for (Player player : players) {
                 if (player.getHP() > 0) {
@@ -121,15 +134,19 @@ public final class Game {
             }
 
             for (Angel angel: angels) {
-                for (Player player: players) {
-                    if (angel.equalsPosition(player.getPosition())) {
-                        if (!(angel instanceof TheDoomer) && player.getHP() > 0) {
-                            angel.interact(player);
-                        } else if (angel instanceof TheDoomer && player.getHP() <= 0) {
-                            angel.interact(player);
+                if (angel.getRound() == currentRound) {
+                    Subject.getInstance().setState(2, angel.getAngelClass(), null,
+                            angel.getPosition()[0], angel.getPosition()[1]);
+                    for (Player player: players) {
+                        if (angel.equalsPosition(player.getPosition())) {
+                            if (!(angel instanceof TheDoomer) && player.getHP() > 0) {
+                                angel.interact(player);
+                            } else if (angel instanceof TheDoomer && player.getHP() <= 0) {
+                                angel.interact(player);
+                            }
                         }
-                    }
 
+                    }
                 }
             }
 
@@ -142,13 +159,19 @@ public final class Game {
         String classType;
         FileSystem fs = new FileSystem(mInputPath, mOutputPath);
 
+        Subject.getInstance().setState(1, null, null, 0, 0);
+
         for (Player player : players) {
             if (player.getHP() <= 0) {
                 fs.writeWord(player.getHeroClass().charAt(0) + " dead" + "\n");
+                System.out.println(player.getHeroClass().charAt(0) + " dead");
             } else {
                 fs.writeWord(player.getHeroClass().charAt(0) + " "
                         + player.getLevel() + " " + player.getXP() + " " + player.getHP()
                         + " " + player.getPosition()[0] + " " + player.getPosition()[1] + "\n");
+                System.out.println(player.getHeroClass().charAt(0) + " "
+                        + player.getLevel() + " " + player.getXP() + " " + player.getHP()
+                        + " " + player.getPosition()[0] + " " + player.getPosition()[1]);
 
             }
         }

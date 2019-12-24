@@ -2,30 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08c976f8-93c8-4f15-a790-02f6f36d44f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/game/elements/Angel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/AngelFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/DamageAngel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/DarkAngel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/Dracula.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/GoodBoy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/LevelUpAngel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/LifeGiver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/SmallAngel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/Spawner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/TheDoomer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/elements/XPAngel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/elements/Observer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/elements/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/elements/TheGreatWizard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/main/GameInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/main/GameInput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/main/GameInputLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/main/GameInputLoader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/main/input.in" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/main/input.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/main/output.out" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/main/output.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/Angel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/Angel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/DamageAngel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/DamageAngel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/DarkAngel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/DarkAngel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/Dracula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/Dracula.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/elements/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/GoodBoy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/GoodBoy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/KnightGainDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/KnightGainDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/KnightGainHP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/KnightGainHP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/LevelUpAngel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/LevelUpAngel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/LifeGiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/LifeGiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/elements/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GameInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GameInputLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameInputLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/PyromancerGainDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/PyromancerGainDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/PyromancerGainHP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/PyromancerGainHP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/RogueGainDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/RogueGainDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/RogueGainHP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/RogueGainHP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/SmallAngel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/SmallAngel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/Spawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/Spawner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/TheDoomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/TheDoomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/WizardGainDamage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/WizardGainDamage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/WizardGainHP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/WizardGainHP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/elements/XPAngel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/elements/XPAngel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/input.in" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/input.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/output.out" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/output.out" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,34 +135,34 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="801" y="265" width="374" height="575" key="#com.intellij.ide.util.MemberChooser" timestamp="1577104500367">
+    <state x="801" y="265" width="374" height="575" key="#com.intellij.ide.util.MemberChooser" timestamp="1577185667192">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="801" y="265" width="374" height="575" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1577104500367" />
+    <state x="801" y="265" width="374" height="575" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1577185667192" />
     <state x="834" y="445" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1577097793712">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="834" y="445" width="308" height="216" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577097793712" />
-    <state width="1354" height="260" key="GridCell.Tab.0.bottom" timestamp="1577118418172">
+    <state width="1354" height="260" key="GridCell.Tab.0.bottom" timestamp="1577190411831">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1354" height="260" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1577118418172" />
-    <state width="1354" height="260" key="GridCell.Tab.0.center" timestamp="1577118418171">
+    <state width="1354" height="260" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1577190411831" />
+    <state width="1354" height="260" key="GridCell.Tab.0.center" timestamp="1577190411830">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1354" height="260" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1577118418171" />
-    <state width="1354" height="260" key="GridCell.Tab.0.left" timestamp="1577118418171">
+    <state width="1354" height="260" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1577190411830" />
+    <state width="1354" height="260" key="GridCell.Tab.0.left" timestamp="1577190411830">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1354" height="260" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1577118418171" />
-    <state width="1354" height="260" key="GridCell.Tab.0.right" timestamp="1577118418171">
+    <state width="1354" height="260" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1577190411830" />
+    <state width="1354" height="260" key="GridCell.Tab.0.right" timestamp="1577190411830">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1354" height="260" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1577118418171" />
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1577111088933">
+    <state width="1354" height="260" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1577190411830" />
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1577185275655">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577111088933" />
+    <state x="649" y="380" key="com.intellij.ide.util.TipDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1577185275655" />
     <state x="302" y="155" width="1372" height="796" key="new project wizard" timestamp="1574840602603">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

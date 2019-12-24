@@ -1,6 +1,7 @@
 package game.elements;
 
 public abstract class Angel {
+    protected String angelClass;
     private int[] position;
     private int round;
 
@@ -9,6 +10,10 @@ public abstract class Angel {
         position = new int[2];
         position[0] = positionX;
         position[1] = positionY;
+    }
+
+    public String getAngelClass() {
+        return angelClass;
     }
 
     public final int[] getPosition() {
@@ -21,5 +26,9 @@ public abstract class Angel {
 
     public void interact(Player player) {
 
+    }
+
+    public int getRound() {
+        return round;
     }
 }

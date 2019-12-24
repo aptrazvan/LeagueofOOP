@@ -4,6 +4,7 @@ import java.util.Vector;
 
 public abstract class Player implements Target {
     protected String heroClass;
+    private int id;
     protected int level;
     private int xp;
     private int health;
@@ -41,13 +42,20 @@ public abstract class Player implements Target {
     }
 
     public final void levelUp() {
+        boolean leveledUp = false;
+
         while (xp >= XPTable.getInstance().getTable().get(level + 1)) {
+            leveledUp = true;
             level++;
             resetHP();
 
             for (Ability ability : abilities) {
                 ability.levelUp();
             }
+        }
+
+        if (leveledUp == true) {
+            Subject.getInstance().setState(6, heroClass, null, id, level);
         }
     }
 
@@ -169,5 +177,13 @@ public abstract class Player implements Target {
         for (Ability ability: abilities) {
             ability.setDamageModifier(damageModifier);
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

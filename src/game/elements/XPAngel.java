@@ -3,6 +3,7 @@ package game.elements;
 public class XPAngel extends Angel {
     public XPAngel(int round, int positionX, int positionY) {
         super(round, positionX, positionY);
+        angelClass = "XPAngel";
     }
 
     @Override
@@ -28,5 +29,7 @@ public class XPAngel extends Angel {
 
         player.gainXP(modifier);
         player.levelUp();
+        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+                0, player.getId());
     }
 }

@@ -3,6 +3,7 @@ package game.elements;
 public class Dracula extends Angel {
     public Dracula(int round, int positionX, int positionY) {
         super(round, positionX, positionY);
+        angelClass = "Dracula";
     }
 
     @Override
@@ -33,5 +34,7 @@ public class Dracula extends Angel {
 
         player.addDamageModifier(modifier);
         player.takeDamage(healthModifier);
+        Subject.getInstance().setState(4, angelClass, player.getHeroClass(),
+                0, player.getId());
     }
 }
