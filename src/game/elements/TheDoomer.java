@@ -11,5 +11,7 @@ public class TheDoomer extends Angel {
         player.setHP(0);
         Subject.getInstance().setState(4, angelClass, player.getHeroClass(),
                 0, player.getId());
+        Subject.getInstance().setState(7, player.getHeroClass(), null,
+                player.getId(), 0);
     }
 }

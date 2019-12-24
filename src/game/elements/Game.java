@@ -67,10 +67,10 @@ public final class Game {
             player1.takeDamage(player1.getHP());
             player2.takeDamage(player2.getHP());
 
-            Subject.getInstance().setState(5, player1.getHeroClass(),
-                    player2.getHeroClass(), player1.getId(), player2.getId());
             Subject.getInstance().setState(5, player2.getHeroClass(),
                     player1.getHeroClass(), player2.getId(), player1.getId());
+            Subject.getInstance().setState(5, player1.getHeroClass(),
+                    player2.getHeroClass(), player1.getId(), player2.getId());
         } else if (player2.getHP() <= 0) {
             player1.gainXP(Math.max(0, BASE_XP - (player1.getLevel()
                     - player2.getLevel()) * COEFFICIENT2));
@@ -139,9 +139,9 @@ public final class Game {
                             angel.getPosition()[0], angel.getPosition()[1]);
                     for (Player player: players) {
                         if (angel.equalsPosition(player.getPosition())) {
-                            if (!(angel instanceof TheDoomer) && player.getHP() > 0) {
+                            if (!(angel instanceof Spawner) && player.getHP() > 0) {
                                 angel.interact(player);
-                            } else if (angel instanceof TheDoomer && player.getHP() <= 0) {
+                            } else if (angel instanceof Spawner && player.getHP() <= 0) {
                                 angel.interact(player);
                             }
                         }
@@ -155,9 +155,9 @@ public final class Game {
 
     }
 
-    public void listResults(final String mInputPath, final String mOutputPath) throws IOException {
+    public void listResults(final FileSystem fs) throws IOException {
         String classType;
-        FileSystem fs = new FileSystem(mInputPath, mOutputPath);
+        //FileSystem fs = new FileSystem(mInputPath, mOutputPath);
 
         Subject.getInstance().setState(1, null, null, 0, 0);
 

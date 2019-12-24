@@ -30,5 +30,7 @@ public class Spawner extends Angel {
         player.setHP(modifier);
         Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
                 0, player.getId());
+        Subject.getInstance().setState(8, player.getHeroClass(), null,
+                player.getId(), 0);
     }
 }

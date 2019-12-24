@@ -79,12 +79,18 @@ public final class Main {
             }
         }
 
+        TheGreatWizard.getInstance().setPath(path1, path2);
+        //TheGreatWizard.getInstance().setPath(args[0], args[1]);
 
         Game game = new Game(roundsNumber, players, moves, angels);
 
         game.play();
+
+        //TheGreatWizard.getInstance().closeFile();
+
         //game.listResults(args[0], args[1]);
-        game.listResults(path1, path2);
+        //game.listResults(path1, path2);
+        game.listResults(TheGreatWizard.getInstance().getFile());
 
     }
 }

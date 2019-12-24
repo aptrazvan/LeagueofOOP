@@ -27,10 +27,11 @@ public class LevelUpAngel extends Angel {
                 break;
         }
 
+        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+                0, player.getId());
         player.gainXP(XPTable.getInstance().getTable().get(player.getLevel() + 1) - player.getXP());
         player.levelUp();
         player.addDamageModifier(modifier);
-        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
-                0, player.getId());
+
     }
 }
