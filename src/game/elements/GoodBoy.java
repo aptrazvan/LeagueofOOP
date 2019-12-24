@@ -1,13 +1,13 @@
 package game.elements;
 
 public class GoodBoy extends Angel {
-    public GoodBoy(int round, int positionX, int positionY) {
+    public GoodBoy(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
         angelClass = "GoodBoy";
     }
 
     @Override
-    public void interact(Player player) {
+    public final void interact(final Player player) {
         float modifier = 0;
         int healthModifier = 0;
 

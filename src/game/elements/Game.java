@@ -25,12 +25,6 @@ public final class Game {
 
     public void battle(final Player player1, final Player player2) {
         int isDeflect = 0;
-        System.out.println("Battle: " + player1.getHeroClass() + " " + player2.getHeroClass());
-        System.out.println(player1.getHP() + " " + player2.getHP());
-
-        /*float damageModifier = player1.getDamageModifier();
-        player1.setDamageModifier(player2.getDamageModifier());
-        player2.setDamageModifier(damageModifier);*/
 
         for (int i = 0; i < player1.getAbilities().size(); i++) {
             if (!(player1.getAbilities().get(i) instanceof Deflect)) {
@@ -87,8 +81,6 @@ public final class Game {
 
         }
 
-        System.out.println(player1.getHP() + " " + player2.getHP());
-
     }
 
     public void play() {
@@ -107,11 +99,8 @@ public final class Game {
                 if (player.getHP() > 0) {
                     Context context = player.getContext();
 
-                    if (context != null && player.getIncapacitated() == false) {
+                    if (context != null && !player.getIncapacitated()) {
                         context.executeStrategy(player);
-                    } else {
-                        //System.out.println(player.getDamageModifier());
-                        //player.setDamageModifier(1);
                     }
 
                     player.setAbilityModifier();
@@ -156,23 +145,15 @@ public final class Game {
     }
 
     public void listResults(final FileSystem fs) throws IOException {
-        String classType;
-        //FileSystem fs = new FileSystem(mInputPath, mOutputPath);
-
         Subject.getInstance().setState(1, null, null, 0, 0);
 
         for (Player player : players) {
             if (player.getHP() <= 0) {
                 fs.writeWord(player.getHeroClass().charAt(0) + " dead" + "\n");
-                System.out.println(player.getHeroClass().charAt(0) + " dead");
             } else {
                 fs.writeWord(player.getHeroClass().charAt(0) + " "
                         + player.getLevel() + " " + player.getXP() + " " + player.getHP()
                         + " " + player.getPosition()[0] + " " + player.getPosition()[1] + "\n");
-                System.out.println(player.getHeroClass().charAt(0) + " "
-                        + player.getLevel() + " " + player.getXP() + " " + player.getHP()
-                        + " " + player.getPosition()[0] + " " + player.getPosition()[1]);
-
             }
         }
         fs.close();

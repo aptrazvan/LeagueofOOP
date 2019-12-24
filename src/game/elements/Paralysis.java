@@ -85,7 +85,7 @@ public final class Paralysis implements Ability {
     }
 
     @Override
-    public void setDamageModifier(float modifier) {
+    public void setDamageModifier(final float modifier) {
         damageModifier = modifier;
     }
 }

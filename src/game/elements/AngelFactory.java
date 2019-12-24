@@ -2,7 +2,8 @@ package game.elements;
 
 public class AngelFactory {
 
-    public Angel getAngel(String angel, int round, int positionX, int positionY) {
+    public final Angel getAngel(final String angel, final int round,
+                                final int positionX, final int positionY) {
         switch (angel) {
             case "DamageAngel":
                 return new DamageAngel(round, positionX, positionY);

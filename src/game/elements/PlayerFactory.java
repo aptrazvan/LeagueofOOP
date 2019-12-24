@@ -4,7 +4,8 @@ import main.Triplet;
 
 public class PlayerFactory {
 
-    public Player getPlayer(Triplet<String, Integer, Integer> stringIntegerIntegerTriplet) {
+    public final Player getPlayer(final Triplet<String, Integer, Integer>
+                                          stringIntegerIntegerTriplet) {
         switch (stringIntegerIntegerTriplet.getFirst()) {
             case "P":
                 return new Pyromancer(stringIntegerIntegerTriplet.getSecond(),

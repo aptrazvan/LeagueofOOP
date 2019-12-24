@@ -1,13 +1,13 @@
 package game.elements;
 
 public class XPAngel extends Angel {
-    public XPAngel(int round, int positionX, int positionY) {
+    public XPAngel(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
         angelClass = "XPAngel";
     }
 
     @Override
-    public void interact(Player player) {
+    public final void interact(final Player player) {
         int modifier = 0;
 
         switch (player.getHeroClass()) {

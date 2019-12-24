@@ -30,7 +30,8 @@ public final class Execute implements Ability {
             pyromancer.takeDamage(pyromancer.getHP());
         } else {
             pyromancer.takeDamage(Math.round((EXECUTE_BASE_DAMAGE2 + EXECUTE_BOOST_DAMAGE
-                    * boostLevel) * boostTerrain * (EXECUTE_PYROMANCER_MODIFIER + damageModifier - 1)));
+                    * boostLevel) * boostTerrain
+                    * (EXECUTE_PYROMANCER_MODIFIER + damageModifier - 1)));
         }
     }
 
@@ -92,7 +93,7 @@ public final class Execute implements Ability {
     }
 
     @Override
-    public void setDamageModifier(float modifier) {
+    public void setDamageModifier(final float modifier) {
         damageModifier = modifier;
     }
 }

@@ -1,8 +1,13 @@
 package main;
 
-import game.elements.*;
+import game.elements.Angel;
+import game.elements.AngelFactory;
+import game.elements.Game;
+import game.elements.Map;
+import game.elements.Player;
+import game.elements.PlayerFactory;
+import game.elements.TheGreatWizard;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -13,11 +18,7 @@ public final class Main {
     }
 
     public static void main(final String[] args) throws IOException {
-        String filePath = (new File("")).getAbsolutePath();
-        String path1 = filePath.concat("/src/main/input.in");
-        String path2 = filePath.concat("/src/main/output.out");
-        //GameInputLoader gameInputLoader = new GameInputLoader(args[0], args[1]);
-        GameInputLoader gameInputLoader = new GameInputLoader(path1, path2);
+        GameInputLoader gameInputLoader = new GameInputLoader(args[0], args[1]);
         GameInput gameInput = gameInputLoader.load();
 
         Pair<Integer, Integer> terrainDim = gameInput.getTerrainDim();
@@ -34,26 +35,6 @@ public final class Main {
         for (Triplet<String, Integer, Integer> stringIntegerIntegerTriplet : playerLocation) {
             players.add(playerFactory.getPlayer(stringIntegerIntegerTriplet));
             players.get(players.size() - 1).setId(players.size() - 1);
-            /*switch (stringIntegerIntegerTriplet.getFirst()) {
-                case "P":
-                    players.add(new Pyromancer(stringIntegerIntegerTriplet.getSecond(),
-                            stringIntegerIntegerTriplet.getThird()));
-                    break;
-                case "K":
-                    players.add(new Knight(stringIntegerIntegerTriplet.getSecond(),
-                            stringIntegerIntegerTriplet.getThird()));
-                    break;
-                case "W":
-                    players.add(new Wizard(stringIntegerIntegerTriplet.getSecond(),
-                            stringIntegerIntegerTriplet.getThird()));
-                    break;
-                case "R":
-                    players.add(new Rogue(stringIntegerIntegerTriplet.getSecond(),
-                            stringIntegerIntegerTriplet.getThird()));
-                    break;
-                default:
-                    break;
-            }*/
         }
 
         ArrayList<Integer> angelsNumber = gameInput.getAngelsNumber();
@@ -79,17 +60,12 @@ public final class Main {
             }
         }
 
-        TheGreatWizard.getInstance().setPath(path1, path2);
-        //TheGreatWizard.getInstance().setPath(args[0], args[1]);
+        TheGreatWizard.getInstance().setPath(args[0], args[1]);
 
         Game game = new Game(roundsNumber, players, moves, angels);
 
         game.play();
 
-        //TheGreatWizard.getInstance().closeFile();
-
-        //game.listResults(args[0], args[1]);
-        //game.listResults(path1, path2);
         game.listResults(TheGreatWizard.getInstance().getFile());
 
     }

@@ -26,7 +26,8 @@ public final class Backstab implements Ability {
     public void target(final Pyromancer pyromancer) {
         setBoostTerrain(pyromancer);
         pyromancer.takeDamage(Math.round((BACKSTAB_BASE_DAMAGE + BACKSTAB_BOOST_DAMAGE
-                * boostLevel) * boostTerrain * (BACKSTAB_PYROMANCER_MODIFIER - 1 + damageModifier)));
+                * boostLevel) * boostTerrain
+                * (BACKSTAB_PYROMANCER_MODIFIER - 1 + damageModifier)));
     }
 
     @Override
@@ -80,7 +81,7 @@ public final class Backstab implements Ability {
     }
 
     @Override
-    public void setDamageModifier(float modifier) {
+    public void setDamageModifier(final float modifier) {
         damageModifier = modifier;
     }
 }

@@ -12,7 +12,7 @@ public abstract class Angel {
         position[1] = positionY;
     }
 
-    public String getAngelClass() {
+    public final String getAngelClass() {
         return angelClass;
     }
 
@@ -24,11 +24,11 @@ public abstract class Angel {
         return position[0] == playerPosition[0] && position[1] == playerPosition[1];
     }
 
-    public void interact(Player player) {
+    public void interact(final Player player) {
 
     }
 
-    public int getRound() {
+    public final int getRound() {
         return round;
     }
 }

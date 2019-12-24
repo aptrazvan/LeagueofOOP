@@ -1,13 +1,13 @@
 package game.elements;
 
 public class Dracula extends Angel {
-    public Dracula(int round, int positionX, int positionY) {
+    public Dracula(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
         angelClass = "Dracula";
     }
 
     @Override
-    public void interact(Player player) {
+    public final void interact(final Player player) {
         float modifier = 0;
         int healthModifier = 0;
 

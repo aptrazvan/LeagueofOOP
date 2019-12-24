@@ -22,9 +22,9 @@ public final class Rogue extends Player {
 
     public Context getContext() {
         Context context = null;
-        if ((float)1/7 * getMaxHP() < getHP() && getHP() < (float)1/5 * getMaxHP()) {
+        if ((float) 1 / 7 * getMaxHP() < getHP() && getHP() < (float) 1 / 5 * getMaxHP()) {
             context = new Context(new RogueGainDamage());
-        } else if(getHP() < (float)1/7 * getMaxHP()) {
+        } else if (getHP() < (float) 1 / 7 * getMaxHP()) {
             context = new Context(new RogueGainHP());
         }
 

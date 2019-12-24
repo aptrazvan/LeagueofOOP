@@ -155,11 +155,11 @@ public abstract class Player implements Target {
         return incapacitated;
     }
 
-    public void setDamageModifier(float damageModifier) {
+    public final void setDamageModifier(final float damageModifier) {
         this.damageModifier = damageModifier;
     }
 
-    public void addDamageModifier(float damageModifier) {
+    public final void addDamageModifier(final float damageModifier) {
         this.damageModifier += damageModifier;
     }
 
@@ -167,21 +167,17 @@ public abstract class Player implements Target {
         return null;
     }
 
-    public float getDamageModifier() {
-        return damageModifier;
-    }
-
-    public void setAbilityModifier() {
+    public final void setAbilityModifier() {
         for (Ability ability: abilities) {
             ability.setDamageModifier(damageModifier);
         }
     }
 
-    public int getId() {
+    public final int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public final void setId(final int id) {
         this.id = id;
     }
 }

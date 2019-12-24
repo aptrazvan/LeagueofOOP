@@ -1,13 +1,13 @@
 package game.elements;
 
 public class LevelUpAngel extends Angel {
-    public LevelUpAngel(int round, int positionX, int positionY) {
+    public LevelUpAngel(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
         angelClass = "LevelUpAngel";
     }
 
     @Override
-    public void interact(Player player) {
+    public final void interact(final Player player) {
         float modifier = 0;
 
         switch (player.getHeroClass()) {
@@ -29,7 +29,8 @@ public class LevelUpAngel extends Angel {
 
         Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
                 0, player.getId());
-        player.gainXP(XPTable.getInstance().getTable().get(player.getLevel() + 1) - player.getXP());
+        player.gainXP(XPTable.getInstance().getTable().get(player.getLevel() + 1)
+                - player.getXP());
         player.levelUp();
         player.addDamageModifier(modifier);
 

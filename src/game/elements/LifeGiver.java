@@ -1,13 +1,13 @@
 package game.elements;
 
 public class LifeGiver extends Angel {
-    public LifeGiver(int round, int positionX, int positionY) {
+    public LifeGiver(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
         angelClass = "LifeGiver";
     }
 
     @Override
-    public void interact(Player player) {
+    public final void interact(final Player player) {
         int modifier = 0;
 
         switch (player.getHeroClass()) {
@@ -27,8 +27,9 @@ public class LifeGiver extends Angel {
                 break;
         }
 
-        int maxHP = HPTable.getInstance().getTable().get(player.getHeroClass() + "Start")
-                + player.getLevel() * HPTable.getInstance().getTable().get(player.getHeroClass() + "Level");
+        int maxHP = HPTable.getInstance().getTable().get(player.getHeroClass()
+                + "Start") + player.getLevel()
+                * HPTable.getInstance().getTable().get(player.getHeroClass() + "Level");
 
         player.gainHP(modifier);
 

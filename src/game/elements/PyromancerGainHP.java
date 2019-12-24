@@ -1,9 +1,12 @@
 package game.elements;
 
+import static game.elements.Constants.PYROMANCER_SECOND_DAMAGE_MODIFIER;
+import static game.elements.Constants.PYROMANCER_SECOND_HEALTH_MODIFIER;
+
 public class PyromancerGainHP implements Strategy {
     @Override
-    public void setStats(Player player) {
-        player.gainHP(Math.round((float)1/3 * player.getHP()));
-        player.addDamageModifier(-0.3f);
+    public final void setStats(final Player player) {
+        player.gainHP(Math.round(PYROMANCER_SECOND_DAMAGE_MODIFIER * player.getHP()));
+        player.addDamageModifier(PYROMANCER_SECOND_HEALTH_MODIFIER);
     }
 }

@@ -1,13 +1,13 @@
 package game.elements;
 
 public class DamageAngel extends Angel {
-    public DamageAngel(int round, int positionX, int positionY) {
+    public DamageAngel(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
         angelClass = "DamageAngel";
     }
 
     @Override
-    public void interact(Player player) {
+    public final void interact(final Player player) {
         float modifier = 0;
 
         switch (player.getHeroClass()) {

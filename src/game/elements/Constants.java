@@ -77,6 +77,23 @@ public final class Constants {
     public static final int MAX_LEVEL = 21;
     public static final int COEFFICIENT2 = 40;
     public static final int BASE_XP = 200;
+    public static final float PYROMANCER_FIRST_DAMAGE_MODIFIER = (float) 1 / 4;
+    public static final float PYROMANCER_SECOND_DAMAGE_MODIFIER = (float) 1 / 3;
+    public static final float PYROMANCER_FIRST_HEALTH_MODIFIER = 0.7f;
+    public static final float PYROMANCER_SECOND_HEALTH_MODIFIER = -0.3f;
+    public static final float KNIGHT_FIRST_DAMAGE_MODIFIER = (float) 1 / 5;
+    public static final float KNIGHT_SECOND_DAMAGE_MODIFIER = (float) 1 / 4;
+    public static final float KNIGHT_FIRST_HEALTH_MODIFIER = 0.5f;
+    public static final float KNIGHT_SECOND_HEALTH_MODIFIER = -0.2f;
+    public static final float WIZARD_FIRST_DAMAGE_MODIFIER = (float) 1 / 10;
+    public static final float WIZARD_SECOND_DAMAGE_MODIFIER = (float) 1 / 5;
+    public static final float WIZARD_FIRST_HEALTH_MODIFIER = 0.6f;
+    public static final float WIZARD_SECOND_HEALTH_MODIFIER = -0.2f;
+    public static final float ROGUE_FIRST_DAMAGE_MODIFIER = (float) 1 / 7;
+    public static final float ROGUE_SECOND_DAMAGE_MODIFIER = (float) 1 / 2;
+    public static final float ROGUE_FIRST_HEALTH_MODIFIER = 0.4f;
+    public static final float ROGUE_SECOND_HEALTH_MODIFIER = -0.1f;
+
 
     private Constants() {
 
