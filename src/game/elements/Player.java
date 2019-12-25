@@ -2,6 +2,8 @@ package game.elements;
 
 import java.util.Vector;
 
+import static game.elements.Constants.PLAYER_LEVEL_UP_STATE;
+
 public abstract class Player implements Target {
     protected String heroClass;
     private int id;
@@ -48,7 +50,7 @@ public abstract class Player implements Target {
             level++;
             resetHP();
 
-            Subject.getInstance().setState(6, heroClass, null, id, level);
+            Subject.getInstance().setState(PLAYER_LEVEL_UP_STATE, heroClass, null, id, level);
 
             for (Ability ability : abilities) {
                 ability.levelUp();

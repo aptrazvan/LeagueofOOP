@@ -1,5 +1,11 @@
 package game.elements;
 
+import static game.elements.Constants.ANGEL_HELP_STATE;
+import static game.elements.Constants.LIFE_GIVER_KNIGHT_MODIFIER;
+import static game.elements.Constants.LIFE_GIVER_PYROMANCER_MODIFIER;
+import static game.elements.Constants.LIFE_GIVER_ROGUE_MODIFIER;
+import static game.elements.Constants.LIFE_GIVER_WIZARD_MODIFIER;
+
 public class LifeGiver extends Angel {
     public LifeGiver(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
@@ -12,16 +18,16 @@ public class LifeGiver extends Angel {
 
         switch (player.getHeroClass()) {
             case "Knight":
-                modifier = 100;
+                modifier = LIFE_GIVER_KNIGHT_MODIFIER;
                 break;
             case "Pyromancer":
-                modifier = 80;
+                modifier = LIFE_GIVER_PYROMANCER_MODIFIER;
                 break;
             case "Rogue":
-                modifier = 90;
+                modifier = LIFE_GIVER_ROGUE_MODIFIER;
                 break;
             case "Wizard":
-                modifier = 120;
+                modifier = LIFE_GIVER_WIZARD_MODIFIER;
                 break;
             default:
                 break;
@@ -37,7 +43,7 @@ public class LifeGiver extends Angel {
             player.resetHP();
         }
 
-        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+        Subject.getInstance().setState(ANGEL_HELP_STATE, angelClass, player.getHeroClass(),
                 0, player.getId());
     }
 }

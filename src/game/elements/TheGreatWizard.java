@@ -4,6 +4,16 @@ import fileio.FileSystem;
 
 import java.io.IOException;
 
+import static game.elements.Constants.ANGEL_HELP_STATE;
+import static game.elements.Constants.ANGEL_HIT_STATE;
+import static game.elements.Constants.ANGEL_KILL_STATE;
+import static game.elements.Constants.ANGEL_SPAWNED_STATE;
+import static game.elements.Constants.ANGEL_SPAWNER_STATE;
+import static game.elements.Constants.PLAYER_KILL_STATE;
+import static game.elements.Constants.PLAYER_LEVEL_UP_STATE;
+import static game.elements.Constants.RESULTS_STATE;
+import static game.elements.Constants.ROUND_STATE;
+
 public class TheGreatWizard extends Observer {
     private static TheGreatWizard instance = null;
     private String mInputPath;
@@ -38,39 +48,39 @@ public class TheGreatWizard extends Observer {
                        final int firstPosition, final int secondPosition) {
         try {
             switch (state) {
-                case 0:
+                case ROUND_STATE:
                     if (firstPosition != 1) {
                         fs.writeWord("\n");
                     }
 
                     fs.writeWord("~~ Round " + firstPosition + " ~~\n");
                     break;
-                case 1:
+                case RESULTS_STATE:
                     fs.writeWord("\n~~ Results ~~\n");
                     break;
-                case 2:
+                case ANGEL_SPAWNED_STATE:
                     fs.writeWord("Angel " + firstName + " was spawned at "
                             + firstPosition + " " + secondPosition + "\n");
                     break;
-                case 3:
+                case ANGEL_HELP_STATE:
                     fs.writeWord(firstName + " helped " + secondName + " " + secondPosition + "\n");
                     break;
-                case 4:
+                case ANGEL_HIT_STATE:
                     fs.writeWord(firstName + " hit " + secondName + " " + secondPosition + "\n");
                     break;
-                case 5:
+                case PLAYER_KILL_STATE:
                     fs.writeWord("Player " + firstName + " " + firstPosition
                             + " was killed by " + secondName + " " + secondPosition + "\n");
                     break;
-                case 6:
+                case PLAYER_LEVEL_UP_STATE:
                     fs.writeWord(firstName + " " + firstPosition
                             + " reached level " + secondPosition + "\n");
                     break;
-                case 7:
+                case ANGEL_KILL_STATE:
                     fs.writeWord("Player " + firstName + " "
                             + firstPosition + " was killed by an angel\n");
                     break;
-                case 8:
+                case ANGEL_SPAWNER_STATE:
                     fs.writeWord("Player " + firstName + " "
                             + firstPosition + " was brought to life by an angel\n");
                     break;

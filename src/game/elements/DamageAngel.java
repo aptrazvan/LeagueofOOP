@@ -1,5 +1,11 @@
 package game.elements;
 
+import static game.elements.Constants.ANGEL_HELP_STATE;
+import static game.elements.Constants.DAMAGE_ANGEL_KNIGHT_MODIFIER;
+import static game.elements.Constants.DAMAGE_ANGEL_PYROMANCER_MODIFIER;
+import static game.elements.Constants.DAMAGE_ANGEL_ROGUE_MODIFIER;
+import static game.elements.Constants.DAMAGE_ANGEL_WIZARD_MODIFIER;
+
 public class DamageAngel extends Angel {
     public DamageAngel(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
@@ -12,23 +18,23 @@ public class DamageAngel extends Angel {
 
         switch (player.getHeroClass()) {
             case "Knight":
-                modifier = 0.15f;
+                modifier = DAMAGE_ANGEL_KNIGHT_MODIFIER;
                 break;
             case "Pyromancer":
-                modifier = 0.2f;
+                modifier = DAMAGE_ANGEL_PYROMANCER_MODIFIER;
                 break;
             case "Rogue":
-                modifier = 0.3f;
+                modifier = DAMAGE_ANGEL_ROGUE_MODIFIER;
                 break;
             case "Wizard":
-                modifier = 0.4f;
+                modifier = DAMAGE_ANGEL_WIZARD_MODIFIER;
                 break;
             default:
                 break;
         }
 
         player.addDamageModifier(modifier);
-        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+        Subject.getInstance().setState(ANGEL_HELP_STATE, angelClass, player.getHeroClass(),
                 0, player.getId());
     }
 }

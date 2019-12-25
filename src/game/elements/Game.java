@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 import static game.elements.Constants.BASE_XP;
 import static game.elements.Constants.COEFFICIENT2;
+import static game.elements.Constants.PLAYER_KILL_STATE;
+import static game.elements.Constants.RESULTS_STATE;
+import static game.elements.Constants.ROUND_STATE;
 
 public final class Game {
     private int roundsNumber;
@@ -52,16 +55,16 @@ public final class Game {
         }
 
         if (player1.getHP() <= 0 && player2.getHP() <= 0) {
-            Subject.getInstance().setState(5, player2.getHeroClass(),
+            Subject.getInstance().setState(PLAYER_KILL_STATE, player2.getHeroClass(),
                     player1.getHeroClass(), player2.getId(), player1.getId());
-            Subject.getInstance().setState(5, player1.getHeroClass(),
+            Subject.getInstance().setState(PLAYER_KILL_STATE, player1.getHeroClass(),
                     player2.getHeroClass(), player1.getId(), player2.getId());
 
             player1.takeDamage(player1.getHP());
             player2.takeDamage(player2.getHP());
 
         } else if (player2.getHP() <= 0) {
-            Subject.getInstance().setState(5, player2.getHeroClass(),
+            Subject.getInstance().setState(PLAYER_KILL_STATE, player2.getHeroClass(),
                     player1.getHeroClass(), player2.getId(), player1.getId());
 
             player1.gainXP(Math.max(0, BASE_XP - (player1.getLevel()
@@ -71,7 +74,7 @@ public final class Game {
 
 
         } else if (player1.getHP() <= 0) {
-            Subject.getInstance().setState(5, player1.getHeroClass(),
+            Subject.getInstance().setState(PLAYER_KILL_STATE, player1.getHeroClass(),
                     player2.getHeroClass(), player1.getId(), player2.getId());
 
             player2.gainXP(Math.max(0, BASE_XP - (player2.getLevel()
@@ -87,7 +90,7 @@ public final class Game {
         int currentRound = 0;
 
         while (currentRound < roundsNumber) {
-            Subject.getInstance().setState(0, null, null, currentRound + 1, 0);
+            Subject.getInstance().setState(ROUND_STATE, null, null, currentRound + 1, 0);
 
             for (Player player : players) {
                 if (player.getHP() > 0) {
@@ -145,7 +148,7 @@ public final class Game {
     }
 
     public void listResults(final FileSystem fs) throws IOException {
-        Subject.getInstance().setState(1, null, null, 0, 0);
+        Subject.getInstance().setState(RESULTS_STATE, null, null, 0, 0);
 
         for (Player player : players) {
             if (player.getHP() <= 0) {

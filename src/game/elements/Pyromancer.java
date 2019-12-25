@@ -1,6 +1,8 @@
 package game.elements;
 
+import static game.elements.Constants.PYROMANCER_HIGHER_HP_STRATEGY;
 import static game.elements.Constants.PYROMANCER_LEVEL_HP_BONUS;
+import static game.elements.Constants.PYROMANCER_LOWER_HP_STRATEGY;
 import static game.elements.Constants.PYROMANCER_MAX_HP;
 
 public final class Pyromancer extends Player {
@@ -22,9 +24,10 @@ public final class Pyromancer extends Player {
 
     public Context getContext() {
         Context context = null;
-        if ((float) 1 / 4 * getMaxHP() < getHP() && getHP() < (float) 1 / 3 * getMaxHP()) {
+        if (PYROMANCER_LOWER_HP_STRATEGY * getMaxHP() < getHP()
+                && getHP() < PYROMANCER_HIGHER_HP_STRATEGY * getMaxHP()) {
             context = new Context(new PyromancerGainDamage());
-        } else if (getHP() < (float) 1 / 4 * getMaxHP()) {
+        } else if (getHP() < PYROMANCER_LOWER_HP_STRATEGY * getMaxHP()) {
             context = new Context(new PyromancerGainHP());
         }
 

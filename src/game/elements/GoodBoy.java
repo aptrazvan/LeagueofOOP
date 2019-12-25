@@ -1,5 +1,15 @@
 package game.elements;
 
+import static game.elements.Constants.ANGEL_HELP_STATE;
+import static game.elements.Constants.GOOD_BOY_KNIGHT_DAMAGE_MODIFIER;
+import static game.elements.Constants.GOOD_BOY_KNIGHT_HEALTH_MODIFIER;
+import static game.elements.Constants.GOOD_BOY_PYROMANCER_DAMAGE_MODIFIER;
+import static game.elements.Constants.GOOD_BOY_PYROMANCER_HEALTH_MODIFIER;
+import static game.elements.Constants.GOOD_BOY_ROGUE_DAMAGE_MODIFIER;
+import static game.elements.Constants.GOOD_BOY_ROGUE_HEALTH_MODIFIER;
+import static game.elements.Constants.GOOD_BOY_WIZARD_DAMAGE_MODIFIER;
+import static game.elements.Constants.GOOD_BOY_WIZARD_HEALTH_MODIFIER;
+
 public class GoodBoy extends Angel {
     public GoodBoy(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
@@ -13,20 +23,20 @@ public class GoodBoy extends Angel {
 
         switch (player.getHeroClass()) {
             case "Knight":
-                modifier = 0.4f;
-                healthModifier = 20;
+                modifier = GOOD_BOY_KNIGHT_DAMAGE_MODIFIER;
+                healthModifier = GOOD_BOY_KNIGHT_HEALTH_MODIFIER;
                 break;
             case "Pyromancer":
-                modifier = 0.5f;
-                healthModifier = 30;
+                modifier = GOOD_BOY_PYROMANCER_DAMAGE_MODIFIER;
+                healthModifier = GOOD_BOY_PYROMANCER_HEALTH_MODIFIER;
                 break;
             case "Rogue":
-                modifier = 0.4f;
-                healthModifier = 40;
+                modifier = GOOD_BOY_ROGUE_DAMAGE_MODIFIER;
+                healthModifier = GOOD_BOY_ROGUE_HEALTH_MODIFIER;
                 break;
             case "Wizard":
-                modifier = 0.3f;
-                healthModifier = 50;
+                modifier = GOOD_BOY_WIZARD_DAMAGE_MODIFIER;
+                healthModifier = GOOD_BOY_WIZARD_HEALTH_MODIFIER;
                 break;
             default:
                 break;
@@ -34,7 +44,7 @@ public class GoodBoy extends Angel {
 
         player.addDamageModifier(modifier);
         player.gainHP(healthModifier);
-        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+        Subject.getInstance().setState(ANGEL_HELP_STATE, angelClass, player.getHeroClass(),
                 0, player.getId());
     }
 }

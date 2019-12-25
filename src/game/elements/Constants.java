@@ -93,6 +93,74 @@ public final class Constants {
     public static final float ROGUE_SECOND_DAMAGE_MODIFIER = (float) 1 / 2;
     public static final float ROGUE_FIRST_HEALTH_MODIFIER = 0.4f;
     public static final float ROGUE_SECOND_HEALTH_MODIFIER = -0.1f;
+    public static final float DAMAGE_ANGEL_KNIGHT_MODIFIER = 0.15f;
+    public static final float DAMAGE_ANGEL_PYROMANCER_MODIFIER = 0.2f;
+    public static final float DAMAGE_ANGEL_ROGUE_MODIFIER = 0.3f;
+    public static final float DAMAGE_ANGEL_WIZARD_MODIFIER = 0.4f;
+    public static final int DARK_ANGEL_KNIGHT_MODIFIER = 40;
+    public static final int DARK_ANGEL_PYROMANCER_MODIFIER = 30;
+    public static final int DARK_ANGEL_ROGUE_MODIFIER = 10;
+    public static final int DAEK_ANGEL_WIZARD_MODIFIER = 20;
+    public static final float DRACULA_KNIGHT_DAMAGE_MODIFIER = -0.2f;
+    public static final float DRACULA_PYROMANCER_DAMAGE_MODIFIER = -0.3f;
+    public static final float DRACULA_ROGUE_DAMAGE_MODIFIER = -0.1f;
+    public static final float DRACULA_WIZARD_DAMAGE_MODIFIER = -0.4f;
+    public static final int DRACULA_KNIGHT_HEALTH_MODIFIER = 60;
+    public static final int DRACULA_PYROMANCER_HEALTH_MODIFIER = 40;
+    public static final int DRACULA_ROGUE_HEALTH_MODIFIER = 35;
+    public static final int DRACULA_WIZARD_HEALTH_MODIFIER = 20;
+    public static final float GOOD_BOY_KNIGHT_DAMAGE_MODIFIER = 0.4f;
+    public static final float GOOD_BOY_PYROMANCER_DAMAGE_MODIFIER = 0.5f;
+    public static final float GOOD_BOY_ROGUE_DAMAGE_MODIFIER = 0.4f;
+    public static final float GOOD_BOY_WIZARD_DAMAGE_MODIFIER = 0.3f;
+    public static final int GOOD_BOY_KNIGHT_HEALTH_MODIFIER = 20;
+    public static final int GOOD_BOY_PYROMANCER_HEALTH_MODIFIER = 30;
+    public static final int GOOD_BOY_ROGUE_HEALTH_MODIFIER = 40;
+    public static final int GOOD_BOY_WIZARD_HEALTH_MODIFIER = 50;
+    public static final float LEVEL_UP_ANGEL_KNIGHT_MODIFIER = 0.1f;
+    public static final float LEVEL_UP_ANGEL_PYROMANCER_MODIFIER = 0.2f;
+    public static final float LEVEL_UP_ANGEL_ROGUE_MODIFIER = 0.15f;
+    public static final float LEVEL_UP_ANGEL_WIZARD_MODIFIER = 0.25f;
+    public static final int LIFE_GIVER_KNIGHT_MODIFIER = 100;
+    public static final int LIFE_GIVER_PYROMANCER_MODIFIER = 80;
+    public static final int LIFE_GIVER_ROGUE_MODIFIER = 90;
+    public static final int LIFE_GIVER_WIZARD_MODIFIER = 120;
+    public static final float SMALL_ANGEL_KNIGHT_DAMAGE_MODIFIER = 0.1f;
+    public static final float SMALL_ANGEL_PYROMANCER_DAMAGE_MODIFIER = 0.15f;
+    public static final float SMALL_ANGEL_ROGUE_DAMAGE_MODIFIER = 0.05f;
+    public static final float SMALL_ANGEL_WIZARD_DAMAGE_MODIFIER = 0.1f;
+    public static final int SMALL_ANGEL_KNIGHT_HEALTH_MODIFIER = 10;
+    public static final int SMALL_ANGEL_PYROMANCER_HEALTH_MODIFIER = 15;
+    public static final int SMALL_ANGEL_ROGUE_HEALTH_MODIFIER = 20;
+    public static final int SMALL_ANGEL_WIZARD_HEALTH_MODIFIER = 25;
+    public static final int SPAWNER_KNIGHT_MODIFIER = 200;
+    public static final int SPAWNER_PYROMANCER_MODIFIER = 150;
+    public static final int SPAWNER_ROGUE_MODIFIER = 180;
+    public static final int SPAWNER_WIZARD_MODIFIER = 120;
+    public static final int XP_ANGEL_KNIGHT_MODIFIER = 45;
+    public static final int XP_ANGEL_PYROMANCER_MODIFIER = 50;
+    public static final int XP_ANGEL_ROGUE_MODIFIER = 40;
+    public static final int XP_ANGEL_WIZARD_MODIFIER = 60;
+    public static final int ROUND_STATE = 0;
+    public static final int RESULTS_STATE = 1;
+    public static final int ANGEL_SPAWNED_STATE = 2;
+    public static final int ANGEL_HELP_STATE = 3;
+    public static final int ANGEL_HIT_STATE = 4;
+    public static final int PLAYER_KILL_STATE = 5;
+    public static final int PLAYER_LEVEL_UP_STATE = 6;
+    public static final int ANGEL_KILL_STATE = 7;
+    public static final int ANGEL_SPAWNER_STATE = 8;
+    public static final float KNIGHT_LOWER_HP_STRATEGY = (float) 1 / 3;
+    public static final float KNIGHT_HIGHER_HP_STRATEGY = (float) 1 / 2;
+    public static final float PYROMANCER_LOWER_HP_STRATEGY = (float) 1 / 4;
+    public static final float PYROMANCER_HIGHER_HP_STRATEGY = (float) 1 / 3;
+    public static final float ROGUE_LOWER_HP_STRATEGY = (float) 1 / 7;
+    public static final float ROGUE_HIGHER_HP_STRATEGY = (float) 1 / 5;
+    public static final float WIZARD_LOWER_HP_STRATEGY = (float) 1 / 4;
+    public static final float WIZARD_HIGHER_HP_STRATEGY = (float) 1 / 2;
+
+
+
 
 
     private Constants() {

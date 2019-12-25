@@ -1,6 +1,8 @@
 package game.elements;
 
+import static game.elements.Constants.WIZARD_HIGHER_HP_STRATEGY;
 import static game.elements.Constants.WIZARD_LEVEL_HP_BONUS;
+import static game.elements.Constants.WIZARD_LOWER_HP_STRATEGY;
 import static game.elements.Constants.WIZARD_MAX_HP;
 
 public final class Wizard extends Player {
@@ -37,9 +39,10 @@ public final class Wizard extends Player {
 
     public Context getContext() {
         Context context = null;
-        if ((float) 1 / 4 * getMaxHP() < getHP() && getHP() < (float) 1 / 2 * getMaxHP()) {
+        if (WIZARD_LOWER_HP_STRATEGY * getMaxHP() < getHP()
+                && getHP() < WIZARD_HIGHER_HP_STRATEGY * getMaxHP()) {
             context = new Context(new WizardGainDamage());
-        } else if (getHP() < (float) 1 / 4 * getMaxHP()) {
+        } else if (getHP() < WIZARD_LOWER_HP_STRATEGY * getMaxHP()) {
             context = new Context(new WizardGainHP());
         }
 

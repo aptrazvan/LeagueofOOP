@@ -1,6 +1,8 @@
 package game.elements;
 
+import static game.elements.Constants.ROGUE_HIGHER_HP_STRATEGY;
 import static game.elements.Constants.ROGUE_LEVEL_HP_BONUS;
+import static game.elements.Constants.ROGUE_LOWER_HP_STRATEGY;
 import static game.elements.Constants.ROGUE_MAX_HP;
 
 public final class Rogue extends Player {
@@ -22,9 +24,10 @@ public final class Rogue extends Player {
 
     public Context getContext() {
         Context context = null;
-        if ((float) 1 / 7 * getMaxHP() < getHP() && getHP() < (float) 1 / 5 * getMaxHP()) {
+        if (ROGUE_LOWER_HP_STRATEGY * getMaxHP() < getHP()
+                && getHP() < ROGUE_HIGHER_HP_STRATEGY * getMaxHP()) {
             context = new Context(new RogueGainDamage());
-        } else if (getHP() < (float) 1 / 7 * getMaxHP()) {
+        } else if (getHP() < ROGUE_LOWER_HP_STRATEGY * getMaxHP()) {
             context = new Context(new RogueGainHP());
         }
 

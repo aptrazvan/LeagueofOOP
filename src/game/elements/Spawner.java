@@ -1,5 +1,12 @@
 package game.elements;
 
+import static game.elements.Constants.ANGEL_HELP_STATE;
+import static game.elements.Constants.ANGEL_SPAWNER_STATE;
+import static game.elements.Constants.SPAWNER_KNIGHT_MODIFIER;
+import static game.elements.Constants.SPAWNER_PYROMANCER_MODIFIER;
+import static game.elements.Constants.SPAWNER_ROGUE_MODIFIER;
+import static game.elements.Constants.SPAWNER_WIZARD_MODIFIER;
+
 public class Spawner extends Angel {
     public Spawner(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
@@ -12,25 +19,25 @@ public class Spawner extends Angel {
 
         switch (player.getHeroClass()) {
             case "Knight":
-                modifier = 200;
+                modifier = SPAWNER_KNIGHT_MODIFIER;
                 break;
             case "Pyromancer":
-                modifier = 150;
+                modifier = SPAWNER_PYROMANCER_MODIFIER;
                 break;
             case "Rogue":
-                modifier = 180;
+                modifier = SPAWNER_ROGUE_MODIFIER;
                 break;
             case "Wizard":
-                modifier = 120;
+                modifier = SPAWNER_WIZARD_MODIFIER;
                 break;
             default:
                 break;
         }
 
         player.setHP(modifier);
-        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+        Subject.getInstance().setState(ANGEL_HELP_STATE, angelClass, player.getHeroClass(),
                 0, player.getId());
-        Subject.getInstance().setState(8, player.getHeroClass(), null,
+        Subject.getInstance().setState(ANGEL_SPAWNER_STATE, player.getHeroClass(), null,
                 player.getId(), 0);
     }
 }

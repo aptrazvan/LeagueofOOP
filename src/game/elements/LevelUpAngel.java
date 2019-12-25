@@ -1,5 +1,11 @@
 package game.elements;
 
+import static game.elements.Constants.ANGEL_HELP_STATE;
+import static game.elements.Constants.LEVEL_UP_ANGEL_KNIGHT_MODIFIER;
+import static game.elements.Constants.LEVEL_UP_ANGEL_PYROMANCER_MODIFIER;
+import static game.elements.Constants.LEVEL_UP_ANGEL_ROGUE_MODIFIER;
+import static game.elements.Constants.LEVEL_UP_ANGEL_WIZARD_MODIFIER;
+
 public class LevelUpAngel extends Angel {
     public LevelUpAngel(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
@@ -12,22 +18,22 @@ public class LevelUpAngel extends Angel {
 
         switch (player.getHeroClass()) {
             case "Knight":
-                modifier = 0.1f;
+                modifier = LEVEL_UP_ANGEL_KNIGHT_MODIFIER;
                 break;
             case "Pyromancer":
-                modifier = 0.2f;
+                modifier = LEVEL_UP_ANGEL_PYROMANCER_MODIFIER;
                 break;
             case "Rogue":
-                modifier = 0.15f;
+                modifier = LEVEL_UP_ANGEL_ROGUE_MODIFIER;
                 break;
             case "Wizard":
-                modifier = 0.25f;
+                modifier = LEVEL_UP_ANGEL_WIZARD_MODIFIER;
                 break;
             default:
                 break;
         }
 
-        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+        Subject.getInstance().setState(ANGEL_HELP_STATE, angelClass, player.getHeroClass(),
                 0, player.getId());
         player.gainXP(XPTable.getInstance().getTable().get(player.getLevel() + 1)
                 - player.getXP());

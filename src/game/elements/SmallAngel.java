@@ -1,5 +1,15 @@
 package game.elements;
 
+import static game.elements.Constants.ANGEL_HELP_STATE;
+import static game.elements.Constants.SMALL_ANGEL_KNIGHT_DAMAGE_MODIFIER;
+import static game.elements.Constants.SMALL_ANGEL_KNIGHT_HEALTH_MODIFIER;
+import static game.elements.Constants.SMALL_ANGEL_PYROMANCER_DAMAGE_MODIFIER;
+import static game.elements.Constants.SMALL_ANGEL_PYROMANCER_HEALTH_MODIFIER;
+import static game.elements.Constants.SMALL_ANGEL_ROGUE_DAMAGE_MODIFIER;
+import static game.elements.Constants.SMALL_ANGEL_ROGUE_HEALTH_MODIFIER;
+import static game.elements.Constants.SMALL_ANGEL_WIZARD_DAMAGE_MODIFIER;
+import static game.elements.Constants.SMALL_ANGEL_WIZARD_HEALTH_MODIFIER;
+
 public class SmallAngel extends Angel {
     public SmallAngel(final int round, final int positionX, final int positionY) {
         super(round, positionX, positionY);
@@ -13,20 +23,20 @@ public class SmallAngel extends Angel {
 
         switch (player.getHeroClass()) {
             case "Knight":
-                modifier = 0.1f;
-                healthModifier = 10;
+                modifier = SMALL_ANGEL_KNIGHT_DAMAGE_MODIFIER;
+                healthModifier = SMALL_ANGEL_KNIGHT_HEALTH_MODIFIER;
                 break;
             case "Pyromancer":
-                modifier = 0.15f;
-                healthModifier = 15;
+                modifier = SMALL_ANGEL_PYROMANCER_DAMAGE_MODIFIER;
+                healthModifier = SMALL_ANGEL_PYROMANCER_HEALTH_MODIFIER;
                 break;
             case "Rogue":
-                modifier = 0.05f;
-                healthModifier = 20;
+                modifier = SMALL_ANGEL_ROGUE_DAMAGE_MODIFIER;
+                healthModifier = SMALL_ANGEL_ROGUE_HEALTH_MODIFIER;
                 break;
             case "Wizard":
-                modifier = 0.1f;
-                healthModifier = 25;
+                modifier = SMALL_ANGEL_WIZARD_DAMAGE_MODIFIER;
+                healthModifier = SMALL_ANGEL_WIZARD_HEALTH_MODIFIER;
                 break;
             default:
                 break;
@@ -34,7 +44,7 @@ public class SmallAngel extends Angel {
 
         player.addDamageModifier(modifier);
         player.gainHP(healthModifier);
-        Subject.getInstance().setState(3, angelClass, player.getHeroClass(),
+        Subject.getInstance().setState(ANGEL_HELP_STATE, angelClass, player.getHeroClass(),
                 0, player.getId());
     }
 }
